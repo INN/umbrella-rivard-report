@@ -4,3 +4,6 @@
 [submodule "wp-content/themes/largo"]
 	path = wp-content/themes/largo
 	url = https://github.com/INN/Largo.git
+[submodule "wp-content/themes/rivard-report"]
+	path = wp-content/themes/rivard-report
+	url = git@github.com:INN/theme-rivard-report.git
