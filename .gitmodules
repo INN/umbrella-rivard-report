@@ -7,3 +7,6 @@
 [submodule "wp-content/themes/rivard-report"]
 	path = wp-content/themes/rivard-report
 	url = git@github.com:INN/theme-rivard-report.git
+[submodule "wp-content/plugins/gravity-forms-add-subtotal-merge-tag"]
+	path = wp-content/plugins/gravity-forms-add-subtotal-merge-tag
+	url = git@github.com:INN/gravity-forms-add-subtotal-merge-tag.git
