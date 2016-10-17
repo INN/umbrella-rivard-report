@@ -1,0 +1,174 @@
+.row-fluid>[class*=span]:last-child>.widget.widget_doubleclick_widget {
+  float:left;
+  padding-left: 0;
+  margin-left: 24px;
+
+  .display-block {
+    margin-bottom: .5em;
+  	max-width:100%;    
+  }
+}
+.widget_doubleclick_widget {
+	position:relative;
+}
+
+.dfw-unit.display-block:before {
+    font-size: 11px!important;
+    position: relative;
+    width: 100%;
+    margin-top: -1.5em;
+}
+
+.largo-related-posts {
+	h2, h3, h4 {
+		font-family:@sans;
+		font-weight:300;
+		a, a:visited {
+			font-weight:inherit;
+			text-decoration:none;
+			color:@neutral1;
+
+			&:hover {
+			  color:@primary;
+			  text-decoration: none;
+			}
+		}
+
+		&.widgettitle,
+		&.heading-treatment {
+			font-family:@sans-bold;
+			font-weight:700;
+		}
+	}
+	h4 {
+		font-family:@sans;
+		font-weight:400;
+	}
+}
+
+ 
+#header-ad-zone-container div {
+	margin:1.5em;
+}
+#header-ad-zone-container div div {
+	margin:0 auto;
+}
+#before-footer div {
+    margin: 1.5em auto;
+}
+#before-footer div div {
+    margin: 0 auto;
+}
+
+#header-ad-zone-container .widget_text >div {
+    margin: 0;
+}
+
+// .header-ad-zone {
+// 	min-height:150px;
+// }
+// @media (max-width: 1024px) { 
+// 	.header-ad-zone {
+// 		min-height:100px;
+// 	}
+// }
+
+#header-ad-zone-container {
+	//position: absolute;
+    left: 0;
+
+	#doubleclick_widget-5 {
+	    background: #ddd;
+	}
+}
+
+#home-middle-banner-ad,
+#home-top-banner-ad {
+  aside {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding:0;
+    min-height:0;
+  }
+}
+
+#largo-donate-widget-2 {
+	background: @white;
+	text-align: center;
+	margin-top: .5em;
+	margin-bottom:.5em;
+	.background-treatment;
+	background-image: url('../assets/pattern-lg.png');
+    padding: 1.5em;
+	float: left;
+    width: 100%;
+
+    p {
+    	margin: 1em 0 1.5em;
+    }
+
+	a.btn-primary {
+		background-color:@secondary;
+		color:@white;
+		padding:.5em 1em;
+		text-transform: uppercase;
+		font-family:@sans-bold;
+
+		&:hover {
+			background-color:saturate(@secondary,30%);
+		}
+	}
+}
+
+.widget.largo-author {
+	padding: 1em 0;
+	margin-bottom:1.5em;
+	border-bottom:1px solid @neutral3; 
+
+	.author-box {
+		p {
+		    max-width: 800px;
+		    margin: 1em auto;
+		}
+		ul {
+			float:none;
+			margin:0 auto;
+
+			li {
+				float:none;
+				vertical-align: top;
+			}
+		}
+	}
+}
+
+footer .widget.largo-featured img {
+    display: none;
+}
+
+
+@media (max-width: 768px) { 
+	.row-fluid>[class*=span]:last-child>.widget.widget_doubleclick_widget {
+	    margin-left: 0; 
+	    margin-bottom:0;
+		width: 100%;
+	}
+	#largo-donate-widget-2 {
+		width: 100%;
+		margin: 1em 0 2.5em 0;
+	}
+	#header-ad-zone-container {
+		position: static;
+	}
+	#sidebar .widget {
+		margin: 1.25em 0 1em 0;
+	}
+}
+
+@media (max-width: 479px){
+	#largo-donate-widget-2,
+	.row-fluid>[class*=span]:last-child>.widget.widget_doubleclick_widget {
+	    margin: 1em auto 0 auto;
+	    float:none;
+	}
+}
