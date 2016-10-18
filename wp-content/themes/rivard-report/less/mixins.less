@@ -1,0 +1,147 @@
+.heading-treatment {
+  text-align: center;
+  font-family:@sans-bold;
+  font-weight:700;
+  font-size:18px;
+  text-transform: uppercase;
+  color:@black;
+  margin-bottom:2em;
+
+  span {
+    border-bottom: 4px solid @primary;
+    padding-bottom: .25em;
+  }
+}
+
+// goes on the containing element
+// element
+//   a
+//     button
+.button-styles {
+  a {
+  }
+  button {
+    background: @primary;
+    border: 4px solid transparent;
+    line-height: 1;
+    padding: 1em 1.5em;
+    color: @white;
+    font-family: @sans-bold;
+    text-transform: uppercase;
+
+    a, a:visited {
+      color:@white;
+    }
+
+    &:hover {
+      background:saturate(@primary,30%);
+    }
+
+    &.secondary {
+      background: @secondary;
+      &:hover {
+        background-color:saturate(@secondary,30%);
+      }
+    }
+
+    &.alt1 {
+      background: @secondary;
+
+      &:hover {
+        background:darken(@secondary,10%);
+      }
+    }
+
+    &.alt2 {
+      background: @white;
+      border-color:@primary;
+      color:@primary;
+
+      &:hover {
+        background:saturate(@white,30%);
+        border-color:saturate(@primary,30%);
+        color:saturate(@primary,30%);
+      }
+    }
+  }
+}
+
+.action-buttons {
+  button {
+    background: @white;
+    border: 4px solid @neutral2;
+    line-height: 1;
+    padding: .5em 1em;
+    color: @neutral2;
+    font-family: @sans-bold;
+    text-transform: uppercase;
+
+    &:hover {
+      border-color:@primary;
+      color:@primary;
+      cursor:pointer;
+    }
+
+    &.secondary {
+      border-color:@secondary;
+      color:@secondary;
+
+      &:hover {
+        border-color:@black;
+        color:@black;
+      }
+    }
+  }
+}
+
+.prominence-sponsored-tag {
+  content: 'sponsored';
+  text-transform: uppercase;
+  background-color: lighten(@secondary,10%);
+  color: @white;
+  padding: .25em .5em;
+  display: inline-block;
+}
+
+.prominence-commentary-tag {
+  content: 'commentary';
+  text-transform: uppercase;
+  background-color: lighten(@primary,10%);
+  color: @white;
+  padding: .25em .5em;
+  display: inline-block;
+}
+
+.prominence-bigger-tag {
+  font-size: 12px;
+}
+.prominence-smaller-tag {
+  font-size: 10px;
+}
+
+.background-treatment {  
+  background-repeat: repeat-x;
+  background-size: 20px;
+  padding: 1.5em;
+  border-top: 4px solid #17B0EA;
+}
+
+
+
+// Copied from Largo https://github.com/INN/Largo/blob/master/less/inc/mixins.less#L197
+.translate(@x, @y) {
+  -webkit-transform: translate(@x, @y);
+     -moz-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y);
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+
+.flexwrap {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
