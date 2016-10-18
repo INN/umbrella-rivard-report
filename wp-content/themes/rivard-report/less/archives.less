@@ -1,0 +1,46 @@
+#category-children {
+  .span4 {
+    margin-bottom: 0.5em;
+  }
+
+  @media @tabletUp {
+    .span4:nth-child(3n+1) {
+      margin-left: 0;
+      clear: left;
+    }
+  }
+  @media (min-width 569px) and (max-width: 768px) {
+    .span4:nth-child(2n+1) {
+      width: 48.93617021%;
+      margin-left: 0;
+      clear: left;
+    }
+  }
+}
+
+.category .stories article,
+.archive .stories article {
+  img {
+    background-color: #eee;
+    float: left;
+    margin: 0 1em 1em 0;
+    max-width: 30%;
+    height: auto;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  // Putting a | between the name and the date
+  .published,
+  .by {
+    display: none;
+  }
+  time::before {
+    content: " | ";
+    display: inline;
+  }
+}
