@@ -145,3 +145,11 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
+// Copied from Largo less/inc/mixins.less
+.socialButton (@network) {
+  background-color: @network;
+  &:hover {
+    background-color: darken(@network, 5%);  
+  }
+}

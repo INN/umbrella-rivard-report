@@ -630,9 +630,25 @@ body.normal.single-post {
   }
 }
 
+
+/**
+ * Social media buttons
+ */
+@comments: #85898F;
+
+#floating-social-buttons .comments,
 #floating-social-buttons .linkedin {
   color: @grayLighter;
   background-color: @white;
+}
+
+.largo-follow {
+  .comments {
+    .socialButton (@comments);
+  }
+}
+#floating-social-buttons .comments:hover {
+  background-color: @comments;
 }
 
 body.normal.page article.page>header h1, 

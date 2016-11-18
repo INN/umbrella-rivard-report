@@ -4,7 +4,9 @@
  */
 
 /**
- * Add the Linkedin button to the post social buttons directly, not within the "more" menu
+ * Add some stuff to the post social media
+ * - Linkedin
+ * - Comments href to #comments
  *
  * The 'brute' in this function name is because it uses string splicing and addition functions to add a button.
  *
@@ -31,6 +33,8 @@ function rr_post_social_brute_add_linkedin($input) {
 		'<span class="linkedin"><a href="%s" target="_blank"><i class="icon-linkedin"></i> <span class="hidden-phone">Share <span class="visuallyhidden">on LinkedIn</span></span></a></span>',
 		$link
 	);
+
+	$string .= '<span class="comments"><a href="#comments"><i class="icon-comment"></i> <span class="hidden-phone">Comments </span></a></span>';
 
 	// Add the button to the largo_post_social_links HTML
 	$output = substr_replace( $input, $string, $position, 0 );
