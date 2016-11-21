@@ -34,7 +34,7 @@ function rr_post_social_brute_add_linkedin($input) {
 		$link
 	);
 
-	$string .= '<span class="comments"><a href="#comments"><i class="icon-comment"></i> <span class="hidden-phone">Comments </span></a></span>';
+	$string .= '<span class="comments"><a href="#disqus_thread"><i class="icon-comment"></i> <span class="hidden-phone">Comments </span></a></span>';
 
 	// Add the button to the largo_post_social_links HTML
 	$output = substr_replace( $input, $string, $position, 0 );
