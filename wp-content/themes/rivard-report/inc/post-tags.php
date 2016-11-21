@@ -36,7 +36,7 @@ function rr_post_social_brute_add_linkedin($input) {
 
 	// If you link to #disqus_thread, the obvious thing to do, Disqus will replace the inner html of the first instance of that on the page with a comment count.
 	// @see rr_fake_comments_link
-	$string .= '<span class="comments"><a href="#comments"><i class="icon-comment"></i> <span class="hidden-phone">Comments </span></a></span>';
+	$string .= '<span class="comments"><a href="#comments_link"><i class="icon-comment"></i> <span class="hidden-phone">Comments </span></a></span>';
 
 	// Add the button to the largo_post_social_links HTML
 	$output = substr_replace( $input, $string, $position, 0 );
@@ -49,6 +49,6 @@ add_filter('largo_post_social_links', 'rr_post_social_brute_add_linkedin');
  * Add a link on the page named #comments so we can link to that instead of #disqus_comments, which gets replaced with a comment county by Disqus
  */
 function rr_fake_comments_link() {
-	echo '<a name="comments" class="visually-hidden" style="display: none;"></a>';
+	echo '<a id="comments_link" class="visually-hidden"></a>';
 }
 add_action('largo_before_comments', 'rr_fake_comments_link');
