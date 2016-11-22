@@ -777,24 +777,27 @@ aside.related {
   border:none;
   margin:1em 0 0 0;
 }
-#alert-container {
-    background-color: @secondary;
-    margin: 0;
-    padding: 1em;
-    color: @white;
+#alert-container > * {
+  margin: 0;
+  padding: 1em;
+}
 
-    a {
+#alert-container .widget_text {
+  background-color: @secondary;
+  color: @white;
+
+  a {
+    color:@white;
+    border-bottom: 1px dotted white;
+    &:hover {
       color:@white;
-      border-bottom: 1px dotted white;
-      &:hover {
-        color:@white;
-      }
+    }
   }
 }
 
 /* Responsive Media Queries*/
 
-@media (max-width: 1157px) {  
+@media (max-width: 1157px) {
   #site-header {
     img {
       max-width:600px;
