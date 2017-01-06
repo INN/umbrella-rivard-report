@@ -1,6 +1,6 @@
 <?php
 /**
- * Child Theme for Rivard Report 
+ * Child Theme for Rivard Report
  */
 
 // Rivard Report is an INN Member, and should be treated accordingly
@@ -125,3 +125,46 @@ function rivard_report_theme_setup() {
 	remove_filter( 'the_content', 'largo_attachment_image_link_remove_filter' );
 }
 add_action( 'after_setup_theme', 'rivard_report_theme_setup', 11 );
+
+
+
+
+
+
+// Enqueue thickbox css & js
+// add_action( 'wp_enqueue_scripts', 'add_thickbox' );
+
+// Enable thickbox on all images in post body
+function rivard_report_thickbox_images() {
+	echo "<script>jQuery('article.post a img').parent().addClass('thickbox').attr('rel', 'page');</script>";
+}
+// add_action( 'wp_footer', 'rivard_report_thickbox_images' );
+
+
+
+
+
+// Enqueue navis css & js
+function rivard_report_navis_enqueue() {
+	$slides_css = get_template_directory_uri() . '/lib/navis-slideshows/css/slides.css';
+	wp_enqueue_style('navis-slides', $slides_css, array(), '1.0');
+
+	$slick_css = get_template_directory_uri() . '/lib/navis-slideshows/vendor/slick/slick.css';
+	wp_enqueue_style('navis-slick', $slick_css, array(), '1.0');
+
+	$slides_src = get_template_directory_uri() . '/lib/navis-slideshows/vendor/slick/slick.min.js';
+	wp_enqueue_script('jquery-slick', $slides_src, array('jquery'), '3.0', true);
+
+	// our custom js
+	$show_src = get_template_directory_uri() . '/lib/navis-slideshows/js/navis-slideshows.js';
+	wp_enqueue_script('navis-slideshows', $show_src, array('jquery-slick'), '0.1', true);
+}
+add_action( 'wp_enqueue_scripts', 'rivard_report_navis_enqueue' );
+
+// Enable navis on all images in post body
+function rivard_report_navis_images() {
+	echo "<script>jQuery(document).ready(function( $ ) {
+		jQuery('article.post a img').parent().slick();
+	});</script>";
+}
+add_action( 'wp_footer', 'rivard_report_navis_images' );
