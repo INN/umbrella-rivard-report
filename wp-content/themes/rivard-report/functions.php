@@ -124,7 +124,7 @@ add_action( 'largo_loop_after_post_x', 'rr_interstitial', 10, 2 );
 function rivard_report_theme_setup() {
 	remove_filter( 'the_content', 'largo_attachment_image_link_remove_filter' );
 }
-add_action( 'after_setup_theme', 'rivard_report_theme_setup', 11 );
+// add_action( 'after_setup_theme', 'rivard_report_theme_setup', 11 );
 
 // Enqueue navis css & js
 function rivard_report_navis_enqueue() {
@@ -142,3 +142,15 @@ function rivard_report_navis_enqueue() {
 	wp_enqueue_script('navis-slideshows', $show_src, array('jquery-slick'), '0.1', true);
 }
 add_action( 'wp_enqueue_scripts', 'rivard_report_navis_enqueue' );
+
+// Enable navis on all images in post body
+function rivard_report_navis_images() {
+	echo "<script>jQuery(document).ready(function( $ ) {
+			$('article.post img').each(function() {
+				if( ! $(this).is( '[data-lazy]' ) ) {
+					$(this).parent().addClass( 'navis-slideshow' );
+				}
+			});
+		});</script>";
+}
+add_action( 'wp_footer', 'rivard_report_navis_images' );
