@@ -146,9 +146,20 @@ add_action( 'wp_enqueue_scripts', 'rivard_report_navis_enqueue' );
 // Enable navis on all images in post body
 function rivard_report_navis_images() {
 	echo "<script>jQuery(document).ready(function( $ ) {
+			// Loop through each image on the page
 			$('article.post img').each(function() {
+
+				// If this is not already a slideshow
 				if( ! $(this).is( '[data-lazy]' ) ) {
-					$(this).parent().addClass( 'navis-slideshow' );
+
+					// If this image has a caption
+					if( ! $(this).hasClass( 'wp-caption' ) ) {
+						$(this).attr('data-lazy', $(this).attr('src') );
+						$(this).parent().addClass( 'navis-slideshow' );
+					} else {
+						$(this).attr('data-lazy', $(this).attr('src') );
+						$(this).addClass( 'navis-slideshow' );
+					}
 				}
 			});
 		});</script>";
