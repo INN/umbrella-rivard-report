@@ -38,6 +38,7 @@
     color:@neutral2;
 }
 
+.hero .navis-slideshow.navis-full h6.credit,
 .navis-slideshow.navis-full h6.credit {
     position:absolute;
     display: block;
@@ -46,11 +47,13 @@
     left: 17.023%;
     text-align: left;
     padding-left:0;
+    z-index: 4;
 }
 
 .navis-slideshow.navis-full .wp-caption-text,
 body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-text {
-    bottom: 24px;
+    bottom: 0;
+    padding-bottom: 32px!important;
     text-align:left;
 }
 
@@ -66,7 +69,7 @@ body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-tex
 /**** SINGLE LIGHTBOX ***/
 .navis-single.navis-full img {
     max-height: 100vh;
-    top: 45%;
+    top: 50%;
     position: absolute;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -84,8 +87,10 @@ body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-tex
         min-height: 25vh;
     }
     .navis-slideshow h6.credit {
-        left: 0;
-        text-align: right;
+        left:0;
+    }
+    .hero .navis-slideshow h6.credit {
+        left:0;
         padding-left:1em;
     }
     .largo-img-grid>div>div {

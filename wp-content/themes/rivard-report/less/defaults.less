@@ -615,9 +615,7 @@ body.normal.single-post {
     margin:0;
   }
   p.wp-media-credit {
-    color: @neutral2;
     font-family:@sans-bold;
-    background-color: @white;
     margin:0;
     position: relative;
     left: 0;
@@ -641,9 +639,26 @@ body.normal.single-post {
       padding: .75em 0 .5em 17.023%;
       position: relative;
       left: 0;
-      margin:0!important;
+      margin:0;//!important;
       margin-bottom: -1em;
+      color: @neutral2;
+      background-color: @white;
     }
+  }
+  .navis-slideshow.navis-full p.wp-caption-text {
+    background-color: rgba(0,0,0,.7);
+    color:@white;
+  }
+  .navis-slideshow.navis-full p.wp-media-credit {
+    position:absolute;
+    display: block;
+    bottom: 0;
+    margin-bottom: 0;
+    left: 17.023%;
+    text-align: left;
+    padding-left:0;
+    z-index: 4;
+    background-color:transparent;
   }
 }
 
@@ -794,172 +809,174 @@ aside.related {
 }
 
 /* Responsive Media Queries*/
-
-@media (max-width: 1157px) {	
-	#site-header {
-	  img {
-	  	max-width:600px;
-	  }
-	}
-	#main-nav.navbar .nav>li {
-	    margin-right: 2em;
-	}
+@media (max-width: 1157px) {
+  #site-header {
+    img {
+      max-width:600px;
+    }
+  }
+  #main-nav.navbar .nav>li {
+      margin-right: 2em;
+  }
 }
-@media (max-width: 1000px) {	
-	#main-nav.navbar .nav>li {
-	    margin-right: 1.75em;
-	}
+@media (max-width: 1000px) {  
+  #main-nav.navbar .nav>li {
+      margin-right: 1.75em;
+  }
 }
-@media (max-width: 768px) {	
-	#main, .home #main {
-    	margin-top: .5em;
-    	padding-bottom: 0;
- 	}
- 	#header-ad-zone-container aside {
-		margin-top: 0;
-	}
-	.entry-content h5.top-tag, 
-	.widget h5.top-tag, 
-	h5.top-tag {
-		.post-category-link a {
-		    padding: .3em .5em;
-		}
-	}
-	#text-14 {
-		background: white;
-		width: 100%;
-		padding: 1em;
-		border-bottom: 1px solid @neutral3;
-	}
-	#before-footer, #footer-logos, #page, #site-footer, .global-nav, .sticky-nav-container {
-		padding:0 .5em;
-	}
-	.home #page,
-	.category #page,
-	.single #page {
-		background-color:@background;
-	}
-	#before-footer .widget:last-child {
-		margin:0;
-	}
-	// .home #main .row-fluid {
-	// 	padding:.5em;
-	// }
-	.category,
-	.archive {
-		.stories {
-			background-color: @white;
-			padding-top:1em;
+@media (max-width: 768px) {  
+  #main, .home #main {
+      margin-top: .5em;
+      padding-bottom: 0;
+   }
+   #header-ad-zone-container aside {
+    margin-top: 0;
+  }
+  .entry-content h5.top-tag, 
+  .widget h5.top-tag, 
+  h5.top-tag {
+    .post-category-link a {
+        padding: .3em .5em;
+    }
+  }
+  .hero {
+    background-color: @white;
+  }
+  #text-14 {
+    background: white;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid @neutral3;
+  }
+  #before-footer, #footer-logos, #page, #site-footer, .global-nav, .sticky-nav-container {
+    padding:0 .5em;
+  }
+  .home #page,
+  .category #page,
+  .single #page {
+    background-color:@background;
+  }
+  #before-footer .widget:last-child {
+    margin:0;
+  }
+  // .home #main .row-fluid {
+  //   padding:.5em;
+  // }
+  .category,
+  .archive {
+    .stories {
+      background-color: @white;
+      padding-top:1em;
 
-			article {
-				padding: 1em;
+      article {
+        padding: 1em;
 
-				&:nth-child(4) {
-				    border-bottom: none;
-				    margin-bottom: 0;
-				}
-				&:nth-child(6) {
-				    padding-top: 1em;
-				}
-				&:last-of-type {
-				    border-bottom: none;
-				}
-			}
-			article.has-post-thumbnail .rr-text-wrap {
-			    width: 100%;
-			}
-			nav#nav-below {
-			    padding: 1em;
-			    text-align: center;
-			}
-			aside {
-				margin:0;
-			}
-		}
-		.row-fluid {
-		    border-bottom: none;
-		    margin-top: 1em;
-		    margin: .5em 0 0 0;
-		    padding-bottom: 0;
+        &:nth-child(4) {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        &:nth-child(6) {
+            padding-top: 1em;
+        }
+        &:last-of-type {
+            border-bottom: none;
+        }
+      }
+      article.has-post-thumbnail .rr-text-wrap {
+          width: 100%;
+      }
+      nav#nav-below {
+          padding: 1em;
+          text-align: center;
+      }
+      aside {
+        margin:0;
+      }
+    }
+    .row-fluid {
+        border-bottom: none;
+        margin-top: 1em;
+        margin: .5em 0 0 0;
+        padding-bottom: 0;
 
-		    &:first-of-type {
-			    margin-top: 0;
-			}
-		}
-		.stories article img {
-		    float: none;
-		    max-width: 100%;
-		    width: 100%;
-		    padding-right: 0;
-		}
-	}
+        &:first-of-type {
+          margin-top: 0;
+      }
+    }
+    .stories article img {
+        float: none;
+        max-width: 100%;
+        width: 100%;
+        padding-right: 0;
+    }
+  }
 
-	.single { 
-		#main {
-			background-color:@white;
-		}
-	}
-	body.normal.single-post {
-		article.post>header .entry-date {
-		    padding-left: 0;
-		    border-left: none;
-		    margin-left: 0;
-		    margin-top: .5em;
-		    display: block;
-		}
-		article.post>header .edit-link {
-			padding-left:0;
-		}
-		.hero p.wp-caption-text {
-		    padding: .75em 1em 1em;
-		}
-	} 
-	aside#sidebar {
-	    padding: 1em;
-	    text-align: center;
-	    background-color: @white;
-	    border-top: 1em solid @background;
-	}
-	.type-pull-quote.half,
-	aside.type-aside.half {
-	    width: 80%;
-	    margin: 0 auto 1em auto;
-	    float:none;
-	}
+  .single { 
+    #main {
+      background-color:@white;
+    }
+  }
+  body.normal.single-post {
+    article.post>header .entry-date {
+        padding-left: 0;
+        border-left: none;
+        margin-left: 0;
+        margin-top: .5em;
+        display: block;
+    }
+    article.post>header .edit-link {
+      padding-left:0;
+    }
+    .hero p.wp-caption-text {
+        padding: .75em 1em 1em;
+    }
+  } 
+  aside#sidebar {
+      padding: 1em;
+      text-align: center;
+      background-color: @white;
+      border-top: 1em solid @background;
+  }
+  .type-pull-quote.half,
+  aside.type-aside.half {
+      width: 80%;
+      margin: 0 auto 1em auto;
+      float:none;
+  }
 
-	.stories {
+  .stories {
 
-		.ad-zone {
-		    background-color: @background;
-		}
-	}
+    .ad-zone {
+        background-color: @background;
+    }
+  }
 
-	.archive-background {
-		padding:1em 1em .5em;
-		background-color: @white;
-		margin-top:0;
-		 .rss-subscribe-link {
-			display:none;
-		}
-	}
-	#category-children {
-		padding-bottom:1em;
-		h5 {
-			margin-top:0;
-		}
-	}
-	#site-footer {
-		text-align: center;
+  .archive-background {
+    padding:1em 1em .5em;
+    background-color: @white;
+    margin-top:0;
+     .rss-subscribe-link {
+      display:none;
+    }
+  }
+  #category-children {
+    padding-bottom:1em;
+    h5 {
+      margin-top:0;
+    }
+  }
+  #site-footer {
+    text-align: center;
 
-		div[class^=span] {
-			margin-bottom:3em;
-		}
+    div[class^=span] {
+      margin-bottom:3em;
+    }
 
-		.post-lead {
-		    text-align: left;
-		    margin: 1em;
-		}
-	}
+    .post-lead {
+        text-align: left;
+        margin: 1em;
+    }
+  }
 }
 
 
