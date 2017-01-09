@@ -528,117 +528,123 @@ h5.top-tag {
     display: none;
 }
 
-body.normal.single-post,
-body.normal.page { 
-	#main {
-		background-color:@white;
-	}
-	.top-date {
-		display: none;
-	}
-	// header h5.top-tag {
-	// 	display:none;
-	// }
-	header .post-category-link a {
-	    background-color: @neutral3;
-	    color: @neutral1;
-	    padding: .25em .5em;
-	    font-size: 12px;
-	    line-height:2;
-	    text-transform: uppercase;
-	    position:absolute;
+body.normal.single-post { 
+  #main {
+    background-color:@white;
+  }
+  .top-date {
+    display: none;
+  }
+  // header h5.top-tag {
+  //   display:none;
+  // }
+  header .post-category-link a {
+      background-color: @neutral3;
+      color: @neutral1;
+      padding: .25em .5em;
+      font-size: 12px;
+      line-height:2;
+      text-transform: uppercase;
+      position:absolute;
 
-	    &:hover {
-	    	//background:saturate(@primary,30%);
-	    	background:fade(@neutral3,75%);
-	    }
-	}
-	.byline {
-		margin-bottom:2em;
-		.avatar {
-		    max-height: initial;
-		    max-width: initial;
-		    border-radius: 50%;
-		    border: 1px solid @neutral2;
-		    vertical-align: middle;
-    		margin: 0 .5em 0 0;
-		}
-		a {
-			vertical-align: middle;
-			padding: 0 .25em 0 0;
-		}
-		.twitter a{
-			color:@neutral2;
-		}
-		.last-modified {
-		    vertical-align: middle;
-		}
-	}
-	article.post>header .entry-date {
-		display:inline-block;
-		color:@neutral2;
-		border-left: 2px solid @neutral2;
-	    padding-left: 1em;
-	    margin-left: .65em;
-	    vertical-align: middle;
-		.published {
-			display:none;
-		}
-	}
-	// article.post.prominence-sponsored>header h5.top-tag:before {
-	// 	.prominence-sponsored-tag;
-	// 	.prominence-bigger-tag;
-	// 	margin-right:.5em;
-	// 	padding:5px 8px 4px 8px;
-	// }
-	// article.post.prominence-commentary>header h5.top-tag:before {
-	// 	.prominence-commentary-tag;
-	// 	.prominence-bigger-tag;
-	// 	margin-right:.5em;
-	// 	padding:5px 8px 4px 8px;
-	// }
-	.post-social>span {
-		font-size: .75em;
-    	letter-spacing: .1em;
+      &:hover {
+        //background:saturate(@primary,30%);
+        background:fade(@neutral3,75%);
+      }
+  }
+  .byline {
+    margin-bottom:2em;
+    .avatar {
+        max-height: initial;
+        max-width: initial;
+        border-radius: 50%;
+        border: 1px solid @neutral2;
+        vertical-align: middle;
+        margin: 0 .5em 0 0;
+    }
+    a {
+      vertical-align: middle;
+      padding: 0 .25em 0 0;
+    }
+    .twitter a{
+      color:@neutral2;
+    }
+    .last-modified {
+        vertical-align: middle;
+    }
+  }
+  article.post>header .entry-date {
+    display:inline-block;
+    color:@neutral2;
+    border-left: 2px solid @neutral2;
+      padding-left: 1em;
+      margin-left: .65em;
+      vertical-align: middle;
+    .published {
+      display:none;
+    }
+  }
+  // article.post.prominence-sponsored>header h5.top-tag:before {
+  //   .prominence-sponsored-tag;
+  //   .prominence-bigger-tag;
+  //   margin-right:.5em;
+  //   padding:5px 8px 4px 8px;
+  // }
+  // article.post.prominence-commentary>header h5.top-tag:before {
+  //   .prominence-commentary-tag;
+  //   .prominence-bigger-tag;
+  //   margin-right:.5em;
+  //   padding:5px 8px 4px 8px;
+  // }
+  .post-social>span {
+    font-size: .75em;
+      letter-spacing: .1em;
 
-    	a {
-    		color:@white;
-    	}
-	}
-	.post-social .more-social-links .popover li span {
-		color:@neutral1;
-	}
-	.icon-mail-alt:before {
-		content: '\75';
-	}
-	.hero {
-		&.span12 {
-		    margin: 0 0 1em 0;
-		 //    background: repeating-linear-gradient(
-			//   45deg,
-			//   @neutral3,
-			//   @neutral3 4px,
-			//   @background 4px,
-			//   @background 8px
-			// );
-		}
-		p.wp-caption-text {
-			padding: .75em 0 1em 0;
-		    color: @neutral2;
-		    background-color: @white;
-		    margin:0;
-		}
-		p.wp-media-credit {
-			text-transform: uppercase;
-    		font-size: 11px;
-			padding: 0 0 .75em 0;
-		    background-color: @white;
-		    margin: 0 0 -1.5em 0;
-		}
-	}
-}
-p.wp-caption-text {
-    font-size: 14px!important;
+      a {
+        color:@white;
+      }
+  }
+  .post-social .more-social-links .popover li span {
+    color:@neutral1;
+  }
+  .icon-mail-alt:before {
+    content: '\75';
+  }
+  p.wp-caption-text {
+    font-size:12px!important;
+    margin:0;
+  }
+  p.wp-media-credit {
+    color: @neutral2;
+    font-family:@sans-bold;
+    background-color: @white;
+    margin:0;
+    position: relative;
+    left: 0;
+    display: block;
+    text-align: left;
+    font-size: 11px;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+  .hero {
+    &.span12 {
+        margin: 0 0 1em 0;
+    }
+    p.wp-caption-text {
+      padding: .75em 0 1em 17.023%;
+      margin:0;
+      background-color: @white;
+      color: @neutral2;
+    }
+    p.wp-media-credit {
+      padding: .75em 0 .5em 17.023%;
+      position: relative;
+      left: 0;
+      margin:0!important;
+      margin-bottom: -1em;
+    }
+  }
 }
 
 #floating-social-buttons .linkedin {

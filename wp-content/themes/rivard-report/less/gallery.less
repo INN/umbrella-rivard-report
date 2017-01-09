@@ -23,7 +23,7 @@
 
 .navis-slideshow h6.credit {
     position:relative;
-    //left:0;
+    left:0;
     margin-bottom:-1em;
     display: block;
     text-align: left;
@@ -31,6 +31,11 @@
     font-style: normal;
     //padding-left:1em;
     text-transform: uppercase;
+}
+
+.hero .navis-slideshow h6.credit {
+    left:17.023%;
+    color:@neutral2;
 }
 
 .navis-slideshow.navis-full h6.credit {
@@ -57,6 +62,21 @@ body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-tex
 .navis-slideshow.navis-full span.navis-before:hover {
     color:@primary;
 }
+
+/**** SINGLE LIGHTBOX ***/
+.navis-single.navis-full img {
+    max-height: 100vh;
+    top: 45%;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
 
 /**** MEDIA QUERIES ***/
 @media (max-width: 768px) { 
