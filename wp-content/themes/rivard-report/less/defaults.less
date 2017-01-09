@@ -610,22 +610,39 @@ body.normal.single-post {
   .icon-mail-alt:before {
     content: '\75';
   }
+  p.wp-caption-text {
+    font-size:12px!important;
+    margin:0;
+  }
+  p.wp-media-credit {
+    color: @neutral2;
+    font-family:@sans-bold;
+    background-color: @white;
+    margin:0;
+    position: relative;
+    left: 0;
+    display: block;
+    text-align: left;
+    font-size: 11px;
+    font-style: normal;
+    text-transform: uppercase;
+  }
   .hero {
     &.span12 {
         margin: 0 0 1em 0;
-     //    background: repeating-linear-gradient(
-      //   45deg,
-      //   @neutral3,
-      //   @neutral3 4px,
-      //   @background 4px,
-      //   @background 8px
-      // );
     }
     p.wp-caption-text {
-      padding: .75em 0 1em 0;
-        color: @neutral2;
-        background-color: @white;
-        margin:0;
+      padding: .75em 0 1em 17.023%;
+      margin:0;
+      background-color: @white;
+      color: @neutral2;
+    }
+    p.wp-media-credit {
+      padding: .75em 0 .5em 17.023%;
+      position: relative;
+      left: 0;
+      margin:0!important;
+      margin-bottom: -1em;
     }
   }
 }
