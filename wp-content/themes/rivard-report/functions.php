@@ -150,17 +150,29 @@ function rivard_report_navis_images() {
 			$('article.post img').each(function() {
 
 				// If this is not already a slideshow
-				if( ! $(this).is( '[data-lazy]' ) ) {
+				var img = $(this);
+			    if ( img[0].hasAttribute('src') ){
 
-					// If this image has a caption
-					if( ! $(this).hasClass( 'wp-caption' ) ) {
-						$(this).attr('data-lazy', $(this).attr('src') );
-						$(this).parent().addClass( 'navis-slideshow' );
-					} else {
-						$(this).attr('data-lazy', $(this).attr('src') );
-						$(this).addClass( 'navis-slideshow' );
-					}
-				}
+			    	// When an image is clicked, add classes to the parent element to open the lightbox view
+			    	img.click(function(){
+			        	var gallery = img.parent();
+				        gallery.addClass('navis-slideshow navis-single navis-full');
+
+				        // Add the close (X) button
+				        gallery.prepend('<span class=\"navis-before\">X</span>');
+
+				        // Adjust styles so images can expand to full width
+				        gallery.css('max-width','100%');
+				        img.removeAttr('width height sizes');
+
+				        // Close the lightbox when the close (X) button is clicked
+				        $('.navis-single .navis-before').click(function(){
+				        	$('.navis-before').remove(); // Removes close (X) button
+							$('.navis-full').removeClass('navis-full navis-slideshow navis-single'); // Removes navis classes
+				        });
+			        });
+
+			    }
 			});
 		});</script>";
 }
