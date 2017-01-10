@@ -183,7 +183,7 @@ function rivard_report_navis_images() {
 							img.attr('style', style);
 				        });
 
-				        $('.navis-full').keyup(function(e) {
+				        $(document).keydown(function(e) {
 					        if (e.keyCode == 27) { // escape
 					            $('.navis-before').remove(); // Removes close (X) button
 								$('.navis-full').removeClass('navis-full navis-slideshow navis-single'); // Removes navis classes
