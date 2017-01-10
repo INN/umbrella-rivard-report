@@ -164,7 +164,8 @@ function rivard_report_navis_images() {
 				        // Save original attribute values
 				        var sizes = img.attr('sizes'),
 				            width = img.attr('width'),
-				            height = img.attr('height');
+				            height = img.attr('height'),
+				            style = img.attr('style');
 
 				        // Adjust styles so images can expand to full width
 				        gallery.css('max-width','100%');
@@ -175,11 +176,25 @@ function rivard_report_navis_images() {
 				        	$('.navis-before').remove(); // Removes close (X) button
 							$('.navis-full').removeClass('navis-full navis-slideshow navis-single'); // Removes navis classes
 
-							// Reset size attributes
+							// Reset attributes
 							img.attr('sizes', sizes);
 							img.attr('width', width);
 							img.attr('height', height);
+							img.attr('style', style);
 				        });
+
+				        $(document).keyup(function(e) {
+					        if (e.keyCode == 27) { // escape
+					            $('.navis-before').remove(); // Removes close (X) button
+								$('.navis-full').removeClass('navis-full navis-slideshow navis-single'); // Removes navis classes
+
+								// Reset attributes
+								img.attr('sizes', sizes);
+								img.attr('width', width);
+								img.attr('height', height);
+								img.attr('style', style);
+					        }
+					    });
 			        });
 
 			    }
