@@ -161,6 +161,11 @@ function rivard_report_navis_images() {
 				        // Add the close (X) button
 				        gallery.prepend('<span class=\"navis-before\">X</span>');
 
+				        // Save original attribute values
+				        var sizes = img.attr('sizes'),
+				            width = img.attr('width'),
+				            height = img.attr('height');
+
 				        // Adjust styles so images can expand to full width
 				        gallery.css('max-width','100%');
 				        img.removeAttr('width height sizes');
@@ -169,6 +174,11 @@ function rivard_report_navis_images() {
 				        $('.navis-single .navis-before').click(function(){
 				        	$('.navis-before').remove(); // Removes close (X) button
 							$('.navis-full').removeClass('navis-full navis-slideshow navis-single'); // Removes navis classes
+
+							// Reset size attributes
+							img.attr('sizes', sizes);
+							img.attr('width', width);
+							img.attr('height', height);
 				        });
 			        });
 
