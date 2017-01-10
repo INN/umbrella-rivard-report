@@ -119,3 +119,9 @@ function rr_interstitial( $counter, $context ) {
 	}
 }
 add_action( 'largo_loop_after_post_x', 'rr_interstitial', 10, 2 );
+
+// Remove Largo filter that strips links off images in post_content
+function rivard_report_theme_setup() {
+	remove_filter( 'the_content', 'largo_attachment_image_link_remove_filter' );
+}
+add_action( 'after_setup_theme', 'rivard_report_theme_setup', 11 );
