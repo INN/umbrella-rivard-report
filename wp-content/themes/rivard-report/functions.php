@@ -165,7 +165,7 @@ function rivard_report_navis_images() {
 				        var sizes = img.attr('sizes'),
 				            width = img.attr('width'),
 				            height = img.attr('height'),
-				            style = img.attr('style');
+				            style = gallery.attr('style');
 
 				        // Adjust styles so images can expand to full width
 				        gallery.css('max-width','100%');
@@ -180,7 +180,7 @@ function rivard_report_navis_images() {
 							img.attr('sizes', sizes);
 							img.attr('width', width);
 							img.attr('height', height);
-							img.attr('style', style);
+							gallery.attr('style', style);
 				        });
 
 				        $(document).keydown(function(e) {
