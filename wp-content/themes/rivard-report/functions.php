@@ -192,7 +192,7 @@ function rivard_report_navis_images() {
 								img.attr('sizes', sizes);
 								img.attr('width', width);
 								img.attr('height', height);
-								img.attr('style', style);
+								gallery.attr('style', style);
 					        }
 					    });
 			        });
