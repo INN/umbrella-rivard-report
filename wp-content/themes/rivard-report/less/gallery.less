@@ -3,10 +3,6 @@
     font-family: @sans;
 }
 
-.navis-slideshow p {
-    padding:0;
-}
-
 .permalink {
     display:none;
 }
@@ -20,50 +16,14 @@
     font-size: 14px!important;
 }
 
-.largo-img-grid .credit {
-    font-size: 11px;
-    margin: 6px 0 0 0;
-}
-
 .navis-slideshow h6.credit {
-    position:relative;
-    left:0;
-    margin-bottom:-1em;
-    display: block;
-    text-align: left;
-    font-size: 11px;
     font-family:@sans-bold;
     font-style: normal;
-    //padding-left:1em;
     text-transform: uppercase;
 }
 
 .hero .navis-slideshow h6.credit {
-    left:17.023%;
     color:@neutral2;
-}
-
-.navis-slideshow.navis-full {
-    margin:0;
-}
-
-.hero .navis-slideshow.navis-full h6.credit,
-.navis-slideshow.navis-full h6.credit {
-    position:absolute;
-    display: block;
-    bottom: 0;
-    margin-bottom: 0;
-    left: 17.023%;
-    text-align: left;
-    padding-left:0;
-    z-index: 4;
-}
-
-.navis-slideshow.navis-full .wp-caption-text,
-body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-text {
-    bottom: 0;
-    padding-bottom: 32px!important;
-    text-align:left;
 }
 
 /**** FULL SIZE ***/
@@ -75,49 +35,6 @@ body.normal.single-post.single .hero .navis-slideshow.navis-full .wp-caption-tex
     color:@primary;
 }
 
-/**** SINGLE LIGHTBOX ***/
-.navis-single.navis-full img {
-    max-height: 100vh;
-    top: 50%;
-    position: absolute;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 
 
 
-/**** MEDIA QUERIES ***/
-@media (max-width: 768px) { 
-    .navis-slideshow.slick-initialized .slick-slide {
-        min-height: 25vh;
-    }
-    .navis-slideshow h6.credit {
-        left:0;
-    }
-    .hero .navis-slideshow h6.credit {
-        left:0;
-        padding-left:1em;
-    }
-    .largo-img-grid>div>div {
-        min-height: 200px;
-        background-size: contain;
-        background-position: bottom left;
-        background-repeat: no-repeat;
-    }
-}
-
-@media (max-width: 520px) {
-    .largo-img-grid>div>div {
-        min-height: 160px;
-    }
-}
-
-@media (max-width: 360px) {
-    .largo-img-grid>div>div {
-        min-height: 120px;
-    }
-}
