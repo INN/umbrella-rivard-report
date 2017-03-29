@@ -38,3 +38,17 @@ function rr_post_social_brute_add_linkedin($input) {
 	return $output;
 }
 add_filter('largo_post_social_links', 'rr_post_social_brute_add_linkedin');
+
+/**
+ * Add a link on the page named #comments so we can link to that instead of #disqus_comments, which gets replaced with a comment count by Disqus
+ */
+function rr_fake_comments_link() {
+	echo '<a id="comments_link" class="visually-hidden"></a>';
+}
+add_action('largo_before_comments', 'rr_fake_comments_link');
+
+/**
+ * Putting this back after https://github.com/INN/Largo/issues/1383
+ * @since Largo 0.5.5.1
+ */
+add_action( 'largo_after_hero', 'largo_after_hero_largo_edited_date', 5 );
