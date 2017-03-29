@@ -80,38 +80,40 @@
         color:@white;
       }
     }
+  }
 
-    li {
-      border-top: 1px solid @neutral3;
-      padding:1em 0 .5em;
 
-      img {
-        display:none;
-      }
+  // items in the widget
+  li {
+    border-top: 1px solid @neutral3;
+    padding:1em 0 .5em;
 
-      &:first-of-type {
-        border-top:none;
-
-        img {
-          display:block;
-        }
-      }
+    img {
+      display:none;
     }
 
-    h5 {
-      font-size:16px;
-      a, a:visited {
-        font-weight:300;
-        text-decoration:none;
-        color:@neutral1;
+    &:first-of-type {
+      border-top:none;
 
-        &:hover {
-          color:@primary;
-          text-decoration: none;
-        }
+      img {
+        display:block;
       }
-    } 
+    }
   }
+
+  h5 {
+    font-size:16px;
+    a, a:visited {
+      font-weight:300;
+      text-decoration:none;
+      color:@neutral1;
+
+      &:hover {
+        color:@primary;
+        text-decoration: none;
+      }
+    }
+  } 
 
   @media (min-width:768px) {
     // .span8 {
@@ -125,15 +127,32 @@
     //   right: 0;
     // }
   }
+}
 
-  // override some colors to match a mockup
+// affect teh Commentary and Sponsored tags
+#home-split,
+#home-the-latest {
+  li h5.top-tag {
+    display: inline-block;
+
+    a, a:visited {
+      color: @white;
+      font-size: 10px;
+      letter-spacing: .05em;
+    }
+    a:hover {
+      color:#323232;
+    }
+  }
+  // override some default colors to match a mockup
+  .top-term-prominence-commentary h5.top-tag .post-category-link a:visited,
   .top-term-prominence-commentary h5.top-tag .post-category-link a {
-    background-color: #97daf5;
+    background-color: rgba(23,176,234,.5);
   }
+  .top-term-prominence-sponsored h5.top-tag .post-category-link a:visited,
   .top-term-prominence-sponsored h5.top-tag .post-category-link a {
-    background-color: #fb9d93;
+    background-color: rgba(255,69,48,.6);
   }
-
 }
 
 #home-resources-guides,
