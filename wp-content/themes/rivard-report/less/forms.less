@@ -66,7 +66,7 @@
   }
   .gfield_price {
     width: 30%;
-    float: left;
+    display: inline-block;
     .ginput_amount {
       width: 100%;
     }
@@ -79,9 +79,6 @@
     @media (max-width: 620px) {
       width: 100%;
     }
-  }
-  #field_4_15 {
-    clear: none;
   }
   // make everything font-size-based line up
   // This affects styles the modify its percentages
@@ -122,9 +119,17 @@
 
   // special positioning for this field
   #field_4_15 {
+    clear: none;
     position: relative;
-    top: 25px;
-    display: inline;
+    display: inline-block;
+    padding-right: 0;
+    top: -5px;
+    .ginput_container {
+      display: inline-block;
+    }
+    ul {
+      display: inline-block;
+    }
 
     @media (max-width: 1110px) {
       clear: both;
