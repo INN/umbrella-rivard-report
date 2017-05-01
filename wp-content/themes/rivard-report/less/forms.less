@@ -199,3 +199,19 @@
     padding: 4px 10px;
   }
 }
+.list-style-checkmark {
+  list-style: none;
+  margin-left: 0;
+  li::before {
+    content: "✔";
+    padding-right: 1em;
+    color: @primary;
+  }
+}
+// override this combo of Largo and bootstrap styles so that images are sized correctly
+img.media-object {
+  max-width: none;
+}
+.media-left {
+  padding-right: 24px;
+}
