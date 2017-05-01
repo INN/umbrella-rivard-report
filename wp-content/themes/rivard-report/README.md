@@ -2,7 +2,7 @@
 
 ## License notes
 
-css/jquery-ui.min.css is covered by the jQuery UI license:
+less/_jquery-ui.less is covered by the jQuery UI license:
 
 
 > Copyright jQuery Foundation and other contributors, https://jquery.org/
