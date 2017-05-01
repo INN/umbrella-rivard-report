@@ -201,17 +201,21 @@
 }
 .list-style-checkmark {
   list-style: none;
-  margin-left: 0;
+  li {
+    margin-bottom: 6px;
+  }
   li::before {
     content: "✔";
-    padding-right: 1em;
+    padding-right: 10px;
     color: @primary;
+    margin-left: -20px;
   }
 }
 .red {
   color: @secondary;
   font-weight: bold;
   margin-top: -1em;
+  margin-bottom: 0.5em;
 }
 .page {
   // override this combo of Largo and bootstrap styles so that images are sized correctly
@@ -219,6 +223,9 @@
     max-width: none;
   }
 
+  .media {
+    margin-bottom: 3em;
+  }
   .media-left {
     padding-right: 24px;
   }
