@@ -208,10 +208,27 @@
     color: @primary;
   }
 }
-// override this combo of Largo and bootstrap styles so that images are sized correctly
-img.media-object {
-  max-width: none;
+.red {
+  color: @secondary;
+  font-weight: bold;
+  margin-top: -1em;
 }
-.media-left {
-  padding-right: 24px;
+.page-template-tabs-page {
+  // override this combo of Largo and bootstrap styles so that images are sized correctly
+  img.media-object {
+    max-width: none;
+  }
+
+  .media-left {
+    padding-right: 24px;
+  }
+  @media ( min-width: 769px ) {
+    .media {
+      width: 48.93617021%;
+      float: left;
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
+    }
+  }
 }
