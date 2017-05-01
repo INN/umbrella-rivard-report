@@ -1,3 +1,4 @@
+// Gravity Forms donate form
 .gform_wrapper.donation_form_wrapper,
 .gform_wrapper.signup_form_wrapper {
   .gfield_required,
@@ -179,5 +180,22 @@
     .ginput_complex .ginput_cardinfo_left {
       margin-right: 0;
     }
+  }
+}
+
+// Fund Journalism form shortcode
+#vosd-donation-form {
+  .donation-frequency {
+    font-family: @sans;
+    margin-top: 8px;
+    selected {
+      background-color: @primary;
+      font-family: @sans-bold;
+    }
+  }
+  button[type=submit] {
+    background-color: @secondary;
+    font-family: @sans;
+    padding: 4px 10px;
   }
 }
