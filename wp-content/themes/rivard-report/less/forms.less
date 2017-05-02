@@ -35,7 +35,7 @@
   .gform_previous_button {
     padding: 12px 36px;
     background-color: @primary;
-    color: #fff;
+    color: @white;
     font-family: @sans;
     border: none;
     font-size: 21px;
@@ -104,7 +104,7 @@
 	    background-color: @primary;
 	    font-size: 18px;
 	    font-family: @sans;
-	    color: #fff;
+	    color: @white;
       }
       input[type=radio]:checked+label {
 	    background-color: @secondary;
@@ -230,29 +230,32 @@
   .media-left {
     padding-right: 24px;
   }
+  .media-body {
+    max-width:100%;
+  }
   .ui-tabs .ui-tabs-nav {
-    border-bottom:3px solid #ccc;
+    border-bottom:3px solid @neutral3;
     padding:0;
     float:left;
     width:100%;
     li {
-      border: 3px solid #ccc;
+      border: 3px solid @neutral3;
       margin-right: -3px;
       margin-bottom: -3px;
       padding-bottom: 3px;
-      background-color: #ccc;
+      background-color: @neutral3;
 
       &:hover {
-        background-color:lighten(#ccc,10%);
+        background-color:lighten(@neutral3,10%);
         cursor:pointer;
       }
 
       &.ui-tabs-active {
-        border-bottom: 3px solid #fff;
-        background-color:#fff;
+        border-bottom: 3px solid @white;
+        background-color:@white;
 
         &:hover {
-          background-color:#fff;
+          background-color:@white;
         }
       }
 
@@ -264,8 +267,9 @@
   }
   .ui-tabs-panel {
     padding:1em 0;
+    clear: both;
   }
-  @media ( min-width: 769px ) {
+  @media ( min-width: 580px ) {
     // pseudo .span6
     .media {
       width: 48.93617021%;
@@ -273,6 +277,7 @@
       padding-right:2em;
       &:nth-of-type(odd) {
         margin-left: 0;
+        clear:left;
       }
     }
 
@@ -282,7 +287,17 @@
     }
   }
 
-  .ui-tabs-panel {
-    clear: both;
+  @media ( max-width: 980px ) {
+
+    .media-body, 
+    .media-left, 
+    .media-right {
+      display:block;
+    }
+    img.media-object {
+      max-width: none;
+      margin:0 auto 1em;
+    }
   }
+
 }
