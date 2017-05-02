@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 	$('.accordion').tabs({
 		collasible: true,
 		active: false,
+		header: 'h4',
 	});
 
 });
