@@ -6,4 +6,10 @@ jQuery(document).ready(function($) {
 	function() { $(this).addClass('ui-state-hover'); },
 	function() { $(this).removeClass('ui-state-hover'); }
 	);
+
+	$('.accordion').tabs({
+		collasible: true,
+		active: false,
+	});
+
 });

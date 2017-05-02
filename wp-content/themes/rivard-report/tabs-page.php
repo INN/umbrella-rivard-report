@@ -8,6 +8,7 @@
 add_action( 'wp_enqueue_scripts', function() {
 	// these are already contained within WordPress
 	wp_enqueue_script( 'jquery-ui-tabs' );
+	wp_enqueue_script( 'jquery-ui-accordion' );
 
 	wp_enqueue_script( 'tabs-page', get_stylesheet_directory_uri() . '/js/tabs-page.js', array( 'jquery-ui-tabs' ) );
 } );
