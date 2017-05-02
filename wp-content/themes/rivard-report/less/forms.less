@@ -261,13 +261,29 @@
 
       a {
         font-weight:bold;
-        color:#484848;
+        color:@neutral1;
       }
     }
   }
   .ui-tabs-panel {
     padding:1em 0;
     clear: both;
+  }
+  .accordion {
+    >h4 {
+      color:@secondary;
+      border:3px solid @secondary;
+      font-size:17px;
+      padding:1em .5em;
+      text-align:center;
+      text-transform:uppercase;
+
+      &:hover {
+        color:@primary;
+        border:3px solid @primary;
+        cursor:pointer;
+      }
+    }
   }
   @media ( min-width: 580px ) {
     // pseudo .span6
