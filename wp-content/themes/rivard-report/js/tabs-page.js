@@ -7,10 +7,12 @@ jQuery(document).ready(function($) {
 	function() { $(this).removeClass('ui-state-hover'); }
 	);
 
-	$('.accordion').tabs({
+	$('.accordion').accordion({
 		collasible: true,
 		active: false,
+		collapsible: true,
 		header: 'h4',
+		heightStyle: "content",
 	});
 
 });
