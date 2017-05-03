@@ -36,10 +36,9 @@
     padding: 12px 36px;
     background-color: @primary;
     color: @white;
-    font-family: @sans;
     border: none;
     font-size: 21px;
-    font-weight: bold;
+    font-family:'muli-bold', sans-serif;
   }
   .gform_button[type=submit],
   .gform_next_button {
@@ -184,21 +183,6 @@
 }
 
 // Fund Journalism form shortcode
-#vosd-donation-form {
-  .donation-frequency {
-    font-family: @sans;
-    margin-top: 8px;
-    selected {
-      background-color: @primary;
-      font-family: @sans-bold;
-    }
-  }
-  button[type=submit] {
-    background-color: @secondary;
-    font-family: @sans;
-    padding: 4px 10px;
-  }
-}
 .list-style-checkmark {
   list-style: none;
   margin-left:27px;
@@ -294,42 +278,67 @@
         box-shadow: 2px 2px 2px rgba(0,0,0,.5);
       }
     }
+  }
+  .form-group {
+    label {
+      position:absolute; 
+      left:-10000px; 
+      top:auto; 
+      width:1px; 
+      height:1px; 
+      overflow:hidden;
+    }
+  }
+  #donation-level-message,
+  .donation-level-message {
+    margin: .5em 0;
+    font-size:.9em;
+    width:100%;
+    float:left;
+  }
+  button[type=submit] {
+    text-transform:uppercase;
+    font-family:'muli-bold', sans-serif;
+    letter-spacing: .0333em;
+    &:hover {
+      background-color:@primary!important;
+    }
+    display:inline-block;
+    clear:both;
+    float:left;
+  }
+  a {
+    display:none;
+  }
+  #membership-type-list {
+    list-style: none;
+    margin:0;
+    padding:0;
 
-    .form-group {
-      label {
-        position:absolute; 
-        left:-10000px; 
-        top:auto; 
-        width:1px; 
-        height:1px; 
-        overflow:hidden;
+    li {
+      display:inline-block;
+
+      input {
+        display:none;
       }
-    }
-    #donation-level-message,
-    .donation-level-message {
-      margin: .5em 0;
-      font-size:.9em;
-    }
-    button[type=submit] {
-      text-transform:uppercase;
-      font-weight:bold;
-      letter-spacing: .0333em;
-      // font-size:0!important;
-      // &:before {
-      //   content: 'Give Now';
-      //   font-size: 18px;
-      //   text-transform: uppercase;
-      //   font-weight: bold;
-      //   margin: .333em;
-      //   display: block;
-      //   letter-spacing:.025em;
-      // }
-      &:hover {
-        background-color:@primary!important;
+
+      label{
+        background-color:#999;
+        color:@white;
+        text-transform: uppercase;
+        font-family:'muli-bold', sans-serif;
+        padding:.5em 1em;
+        &:hover {
+          background-color:@primary;
+          cursor:pointer;
+        }
       }
-    }
-    a {
-      display:none;
+      input[type="radio"]:checked+label {
+        background-color:@secondary;
+        &:hover {
+          background-color:@primary;
+        }
+      }
     }
   }
   @media ( min-width: 580px ) {
