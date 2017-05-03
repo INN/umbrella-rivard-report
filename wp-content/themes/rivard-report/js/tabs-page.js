@@ -33,4 +33,13 @@ jQuery(document).ready(function($) {
 		});
 	}
 
+	$('input:radio+label').keypress(function(e){
+	    if(e.keyCode === 0 || e.keyCode === 32 || e.keyCode === 13 ){
+	        $(this).prev('input').trigger('click');
+	        selected = $(this).prev('input').val();
+			$('.rivard-donation-form').hide();
+			$('.rivard-donation-form.level-' + selected).show();
+	    }
+	});
+
 });
