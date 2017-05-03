@@ -12,8 +12,10 @@ jQuery(document).ready(function($) {
 		active: false,
 		collapsible: true,
 		header: 'h4',
-		heightStyle: "content",
+		heightStyle: "content"
 	});
+
+	$('.rivard-donation-form').show();
 
 	// for donation page
 	if ($('body').hasClass('page-id-184947')){
