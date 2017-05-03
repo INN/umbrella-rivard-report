@@ -39,6 +39,7 @@ jQuery(document).ready(function($) {
 	        selected = $(this).prev('input').val();
 			$('.rivard-donation-form').hide();
 			$('.rivard-donation-form.level-' + selected).show();
+			$('.donation-frequency.selected input').attr('checked', 'checked');
 	    }
 	});
 
