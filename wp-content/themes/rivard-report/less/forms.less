@@ -1,3 +1,4 @@
+// Gravity Forms donate form
 .gform_wrapper.donation_form_wrapper,
 .gform_wrapper.signup_form_wrapper {
   .gfield_required,
@@ -34,11 +35,10 @@
   .gform_previous_button {
     padding: 12px 36px;
     background-color: @primary;
-    color: #fff;
-    font-family: @sans;
+    color: @white;
     border: none;
     font-size: 21px;
-    font-weight: bold;
+    font-family:'muli-bold', sans-serif;
   }
   .gform_button[type=submit],
   .gform_next_button {
@@ -101,7 +101,7 @@
         background-color: @primary;
         font-size: 18px;
         font-family: @sans;
-        color: #fff;
+        color: @white;
       }
       input[type=radio]:checked+label {
         background-color: @secondary;
@@ -193,4 +193,278 @@
       margin-right: 0;
     }
   }
+}
+
+// Fund Journalism form shortcode
+.list-style-checkmark {
+  list-style: none;
+  margin-left:27px;
+  li {
+    margin-bottom: 6px;
+  }
+  li::before {
+    content: "✔";
+    padding-right: 10px;
+    color: @primary;
+    margin-left: -27px;
+  }
+}
+.red {
+  color: @secondary;
+  font-weight: bold;
+  margin-top: -1em;
+  margin-bottom: 0.5em;
+}
+.page {
+  // override this combo of Largo and bootstrap styles so that images are sized correctly
+  img.media-object {
+    max-width: none;
+  }
+
+  .media {
+    margin-bottom: 3em;
+  }
+  .media-left {
+    padding-right: 24px;
+  }
+  .media-body {
+    max-width:100%;
+  }
+  .ui-tabs .ui-tabs-nav {
+    border-bottom:3px solid @neutral3;
+    padding:0;
+    float:left;
+    width:100%;
+    li {
+      border: 3px solid @neutral3;
+      margin-right: -3px;
+      margin-bottom: -3px;
+      padding-bottom: 3px;
+      background-color: @neutral3;
+
+      &:hover {
+        background-color:lighten(@neutral3,10%);
+        cursor:pointer;
+      }
+
+      &.ui-tabs-active {
+        border-bottom: 3px solid @white;
+        background-color:@white;
+
+        &:hover {
+          background-color:@white;
+        }
+      }
+
+      a {
+        font-weight:bold;
+        color:@neutral1;
+        outline:none;
+
+        &:focus {
+          color:@primary;  
+        }
+      }
+    }
+  }
+  .ui-tabs-panel {
+    padding:1em 0;
+    clear: both;
+  }
+  .rivard-donation-form {
+    display:none;
+  }
+  .accordion {
+
+    >h4 {
+      color:@secondary;
+      border:3px solid @secondary;
+      font-size:17px;
+      padding:.5em .25em;
+      margin-right:2px;
+      outline:none;
+      text-align:center;
+      text-transform:uppercase;
+
+      &:hover {
+        color:@primary;
+        border:3px solid @primary;
+        cursor:pointer;
+      }
+      &:focus {
+        box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+      }
+    }
+  }
+  .form-group {
+
+    label {
+      position:absolute; 
+      left:-10000px; 
+      top:auto; 
+      width:1px; 
+      height:1px; 
+      overflow:hidden;
+    }
+  }
+  .rivard-donate-label {
+    display:none;
+  }
+  #donation-level-message,
+  .donation-level-message{
+    margin: .5em 0;
+    font-size:.9em;
+    width:100%;
+    float:left;
+  }
+  .rivard-donation-form .error-message {
+    margin: 1em 0 .5em 0;
+    font-size:.9em;
+    width:100%;
+    float:left;
+    color:@secondary;
+  }
+  button[type=submit] {
+    text-transform:uppercase;
+    font-family:'muli-bold', sans-serif;
+    letter-spacing: .0333em;
+    &:hover {
+      background-color:@neutral1;
+    }
+    display:inline-block;
+    clear:both;
+    float:left;
+  }
+  #membership-type-list {
+    list-style: none;
+    margin:0;
+    padding:0;
+
+    li {
+      display:inline-block;
+
+      input {
+        display:none;
+      }
+
+      label{
+        background-color:#999;
+        color:@white;
+        text-transform: uppercase;
+        font-family:'muli-bold', sans-serif;
+        padding: 4px 1em;
+        line-height: 2;
+        &:hover {
+          background-color:@secondary;
+          cursor:pointer;
+        }
+      }
+      input[type="radio"]:checked+label {
+        background-color:@primary;
+        &:hover {
+          background-color:@secondary;
+        }
+      }
+    }
+  }
+
+  &.page-id-184947 {
+    .rivard-donation-form .form-group {
+      width:20%;
+    }
+    .rivard-donate-label {
+      display:block;
+    }
+    input.rivard-donation-amount.form-control {
+      min-width: 86%;
+      margin-right: 2%;
+      line-height: 2;
+    }
+    .donation-level-message {
+      margin: 1em 0;
+      font-size: 1em;
+    }
+  }
+  @media ( min-width: 580px ) {
+    // pseudo .span6
+    .media {
+      width: 48.93617021%;
+      float: left;
+      padding-right:2em;
+      &:nth-of-type(odd) {
+        margin-left: 0;
+        clear:left;
+      }
+    }
+
+    .columns {
+      column-count: 2;
+      clear: both;
+    }
+  }
+
+  @media ( max-width: 980px ) {
+
+    .media-body, 
+    .media-left, 
+    .media-right {
+      display:block;
+    }
+    img.media-object {
+      max-width: none;
+      margin:0 auto 1em;
+    }
+  }
+
+  @media ( max-width:768px) {
+    &.page-id-184947 {
+
+      #membership-type-list {
+        min-width:100%;
+        li {
+          min-width: 32%;
+          text-align: center;
+
+          label {
+            zoom:.8;
+          }
+        }
+      }
+      .rivard-donation-form .form-group,
+      .donation-frequency-group {
+        min-width:100%;
+        zoom:.8;
+
+      }
+      .rivard-donation-form .form-group::before {
+        display:none;
+        
+      }
+      input.rivard-donation-amount.form-control {
+        min-width:100%;
+        margin:0;
+      }
+      .donation-frequency-group {
+        min-width:100%;
+        margin-top:1em;
+      }
+      .donation-frequency {
+        max-width:100%;
+        width:32%;
+      }
+      button[type=submit] {
+        min-width: 100%;
+      }
+    }
+  }
+
+  @media ( max-width:480px ){
+    .rivard-donation-form .form-group {
+      max-width: 50%;
+      min-width:40%;
+      margin-right: 2%;
+    }
+
+  }
+
 }
