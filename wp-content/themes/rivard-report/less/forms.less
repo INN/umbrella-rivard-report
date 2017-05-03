@@ -404,11 +404,16 @@
         li {
           min-width: 32%;
           text-align: center;
+
+          label {
+            zoom:.8;
+          }
         }
       }
       .rivard-donation-form .form-group,
       .donation-frequency-group {
         min-width:100%;
+        zoom:.8;
 
       }
       .rivard-donation-form .form-group::before {
@@ -431,6 +436,14 @@
         min-width: 100%;
       }
     }
+  }
+
+  @media ( max-width:480px ){
+    .rivard-donation-form .form-group {
+      max-width: 50%;
+      margin-right: 2%;
+    }
+
   }
 
 }
