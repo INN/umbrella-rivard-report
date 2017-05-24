@@ -28,9 +28,12 @@ dfn, dl dt, strong, b {
     font-family: @sans-bold;
 }
 
-#header-search input, #site-footer input.search-query {
-  padding:12px 4px;
+#site-footer input.search-query,
+#header-search input {
+  padding: 4px;
+  height: 26px !important;
 }
+
 #header-search button, .search-submit.btn {
     height: 26px;
     text-transform: uppercase;
@@ -66,8 +69,8 @@ h1 {
         border-bottom:1px dotted @primary;
       }
     }
-  } 
-} 
+  }
+}
 
 .byline {
   text-transform: uppercase;
@@ -332,7 +335,7 @@ h1 {
         }
       }
   }
-  
+
 }
 
 .home,
@@ -371,8 +374,8 @@ h1 {
   }
 }
 
-.category, 
-.archive {  
+.category,
+.archive {
   h2 {
     font-family:@sans;
     font-weight:400;
@@ -383,7 +386,7 @@ h1 {
   }
   #category-ad-zone {
     border-top: 1px solid @neutral3;
-      
+
     >aside {
       margin: 0;
       min-height:0;
@@ -502,8 +505,8 @@ h1 {
 }
 
 
-.entry-content h5.top-tag, 
-.widget h5.top-tag, 
+.entry-content h5.top-tag,
+.widget h5.top-tag,
 h5.top-tag {
   margin-bottom:.5em;
   min-height:24px;
@@ -528,7 +531,7 @@ h5.top-tag {
     display: none;
 }
 
-body.normal.single-post { 
+body.normal.single-post {
   #main {
     background-color:@white;
   }
@@ -795,9 +798,9 @@ aside.related {
     border-bottom: 1px dotted @neutral3;
 }
 
-#respond .comment-form-author label, 
-#respond .comment-form-comment label, 
-#respond .comment-form-email label, 
+#respond .comment-form-author label,
+#respond .comment-form-comment label,
+#respond .comment-form-email label,
 #respond .comment-form-url label {
   padding: 0 10px;
   top:30px;
@@ -830,9 +833,9 @@ aside.related {
 /* Membership Section */
 .page-template-tabs-page,
 .page-template-full-page {
-	#main {
-	    margin-top: 2em;
-	}
+  #main {
+      margin-top: 2em;
+  }
 }
 
 /* Responsive Media Queries*/
@@ -846,12 +849,12 @@ aside.related {
       margin-right: 2em;
   }
 }
-@media (max-width: 1000px) {  
+@media (max-width: 1000px) {
   #main-nav.navbar .nav>li {
       margin-right: 1.75em;
   }
 }
-@media (max-width: 768px) {  
+@media (max-width: 768px) {
   #main, .home #main {
       margin-top: .5em;
       padding-bottom: 0;
@@ -859,8 +862,8 @@ aside.related {
    #header-ad-zone-container aside {
     margin-top: 0;
   }
-  .entry-content h5.top-tag, 
-  .widget h5.top-tag, 
+  .entry-content h5.top-tag,
+  .widget h5.top-tag,
   h5.top-tag {
     .post-category-link a {
         padding: .3em .5em;
@@ -938,7 +941,7 @@ aside.related {
     }
   }
 
-  .single { 
+  .single {
     #main {
       background-color:@white;
     }
@@ -957,7 +960,7 @@ aside.related {
     .hero p.wp-caption-text {
         padding: .75em 1em 1em;
     }
-  } 
+  }
   aside#sidebar {
       padding: 1em;
       text-align: center;
