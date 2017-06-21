@@ -81,6 +81,35 @@ function rr_custom_sidebars() {
 add_action( 'widgets_init', 'rr_custom_sidebars' );
 
 /**
+ * Register sidebars, one for each category
+ * Create widgetized sidebars for each category
+ *
+ * This function is attached to the 'widgets_init' action hook.
+ *
+ * @uses	register_sidebar()
+ * @uses	get_categories()
+ * @uses	get_cat_name()
+ * @link	https://bavotasan.com/2012/create-widgetized-sidebars-for-each-category-in-wordpress/
+ */
+function rr_category_sidebars() {
+	$categories = get_categories( array( 'hide_empty'=> 0 ) );
+
+	foreach ( $categories as $category ) {
+		if ( 0 == $category->parent )
+			register_sidebar( array(
+				'name' => $category->cat_name,
+				'id' => $category->category_nicename . '-sidebar',
+				'description' => 'This is the ' . $category->cat_name . ' widgetized area',
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget' => '</aside>',
+				'before_title' => '<h3 class="widget-title">',
+				'after_title' => '</h3>',
+			) );
+	}
+}
+add_action( 'widgets_init', 'rr_category_sidebars', 40 ); // 40 to put this below every other widget
+
+/**
  * Placeholder for inserting sponsor/membership messages on archive pages
  * The real requirement is to be able to target this per category so there is likely more work needed here
  */
