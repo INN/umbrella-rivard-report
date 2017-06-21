@@ -99,7 +99,7 @@ function rr_category_sidebars() {
 			register_sidebar( array(
 				'name' => $category->cat_name,
 				'id' => $category->category_nicename . '-sidebar',
-				'description' => 'This is the ' . $category->cat_name . ' widgetized area',
+				'description' => 'This is the ' . $category->cat_name . ' category header advertisement area',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => '</aside>',
 				'before_title' => '<h3 class="widget-title">',
