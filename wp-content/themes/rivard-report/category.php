@@ -33,6 +33,7 @@ $queried_object = get_queried_object();
 		<?php do_action( 'largo_category_after_description_in_header' ); ?>
 	</header>
 
+	<section id="cat-sponsored" class="clearfix">
 	<?php
 		/**
 		 * Output per-category sidebar here
@@ -41,6 +42,7 @@ $queried_object = get_queried_object();
 		$sidebar_id = ( is_category() ) ? sanitize_title( get_cat_name( get_query_var( 'cat' ) ) ) . '-sidebar' : 'sidebar';
 		dynamic_sidebar( $sidebar_id );
 	?>
+	</section>
 
 	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
 		$featured_posts = rr_get_featured_posts_in_category( $wp_query->query_vars['category_name'] );

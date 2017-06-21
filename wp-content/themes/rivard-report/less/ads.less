@@ -4,3 +4,25 @@
     margin-bottom: 16px;
   }
 }
+
+#cat-sponsored {
+  vertical-align: top;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center
+  align-items: flex-start;
+  align-content: stretch;
+
+  .widget {
+    flex: 0 0 33%;
+    align-self: flex-start;
+
+    box-sizing: border-box;
+    padding: 0.5em;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
