@@ -40,7 +40,12 @@ $queried_object = get_queried_object();
 		 * @link https://bavotasan.com/2012/create-widgetized-sidebars-for-each-category-in-wordpress/
 		 */
 		$sidebar_id = ( is_category() ) ? sanitize_title( get_cat_name( get_query_var( 'cat' ) ) ) . '-sidebar' : 'sidebar';
-		dynamic_sidebar( $sidebar_id );
+		if( is_active_sidebar( $sidebar_id ) ) {
+			echo '<h6 class="clearfix by">Presented by</h6>';
+			echo '<div class="items">';
+			dynamic_sidebar( $sidebar_id );
+			echo '</div>';
+		}
 	?>
 	</section>
 

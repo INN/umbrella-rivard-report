@@ -6,13 +6,24 @@
 }
 
 #cat-sponsored {
-  vertical-align: top;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: stretch;
+  .by {
+    display: block;
+    clear: both;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+  }
+
+  .items {
+    vertical-align: top;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+  }
 
   .widget {
     flex: 0 0 33%;
