@@ -33,6 +33,22 @@ $queried_object = get_queried_object();
 		<?php do_action( 'largo_category_after_description_in_header' ); ?>
 	</header>
 
+	<section id="cat-sponsored" class="clearfix">
+	<?php
+		/**
+		 * Output per-category sidebar here
+		 * @link https://bavotasan.com/2012/create-widgetized-sidebars-for-each-category-in-wordpress/
+		 */
+		$sidebar_id = ( is_category() ) ? sanitize_title( get_cat_name( get_query_var( 'cat' ) ) ) . '-sidebar' : 'sidebar';
+		if( is_active_sidebar( $sidebar_id ) ) {
+			echo '<h6 class="clearfix by">Presented by</h6>';
+			echo '<div class="items">';
+			dynamic_sidebar( $sidebar_id );
+			echo '</div>';
+		}
+	?>
+	</section>
+
 	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
 		$featured_posts = rr_get_featured_posts_in_category( $wp_query->query_vars['category_name'] );
 		if ( count( $featured_posts ) > 0 ) {
