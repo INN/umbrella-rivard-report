@@ -79,9 +79,6 @@ wp-content/debug.log
 /wp-content/plugins/*
 /wp-content/themes/*
 
-# Do version the themes we do care about
-!/wp-content/themes/rivard-report
-
 # large/disallowed file types
 # a CDN should be used for these
 *.hqx
@@ -118,3 +115,8 @@ wp-content/debug.log
 *.avi
 
 /.htaccess
+
+# do version-control the child theme we care about
+# add a line here that looks like this:
+# !/wp-content/themes/example-theme-directory
+!/wp-content/themes/rivard-report
