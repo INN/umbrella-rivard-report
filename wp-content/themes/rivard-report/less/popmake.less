@@ -1,16 +1,12 @@
 /**
  * popup styles for the newsletter subscribe form
  *
- * copied from VOSD
+ * modified significantly from VOSD's styles, but borrowing from them for the [newsletter-list] shortcode's output.
  */
-.popmake {
-  border-radius: 0 !important;
+.pum-content {
   font-size: 16px !important;
   padding: 19px 30px 27px !important;
 
-  .popmake-title {
-      display: none;
-  }
   input[type=submit] {
     background: @primary;
     border: medium none;
@@ -18,10 +14,9 @@
     padding: 7px 15px;
     font-family: @sans;
   }
-
-  .mc-field-group {
-    display: inline-block;
-  }
+}
+// styles specific to the [newsletter-list] shortcode
+.news-select{
   h1 {
     font-size: 24px;
   }
@@ -34,21 +29,23 @@
       display: inline;
     }
   }
-}
-.pum-overlay {
-  opacity: 0.5;
-}
-
-.pum-content .news-select{
+  .mc-field-group {
+    display: inline-block;
+  }
   li {
       display: inline-block;
-      margin: 4px 16px;
+      margin: 4px;
+  }
+  ul {
+    margin-left: 0;
+  }
+  input {
+    margin: 0;
+    vertical-align: middle;
   }
   label {
     margin: 0 4px;
     display: inline-block;
-  }
-  & > p {
-    margin-bottom: 0 !important;
+    line-height: 1;
   }
 }
