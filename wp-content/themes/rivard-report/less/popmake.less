@@ -3,49 +3,29 @@
  *
  * modified significantly from VOSD's styles, but borrowing from them for the [newsletter-list] shortcode's output.
  */
+.pum-container {
+  margin-bottom: 0; // this is to override a style that was causing scrollbars
+}
 .pum-content {
   font-size: 16px !important;
   padding: 19px 30px 27px !important;
 
-  input[type=submit] {
-    background: @primary;
-    border: medium none;
-    color: #fff;
-    padding: 7px 15px;
+  input {
     font-family: @sans;
   }
-  .mc-field-group {
-    display: inline-block;
-  }
-}
-// styles specific to the [newsletter-list] shortcode
-.news-select{
-  h1 {
-    font-size: 24px;
-  }
-  h2 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    margin-top: 12px;
-    &::after {
-      content: ':';
-      display: inline;
+  input[type=submit] {
+    background: @primary;
+    border-color: @primary;
+    color: #fff;
+    padding-top: 3px;
+    &:hover {
+      background: lighten( @primary, 10% );
+      border-color: lighten( @primary, 10% );
     }
   }
-  li {
-      display: inline-block;
-      margin: 4px;
-  }
-  ul {
-    margin-left: 0;
-  }
-  input {
-    margin: 0;
-    vertical-align: middle;
-  }
-  label {
-    margin: 0 4px;
-    display: inline-block;
-    line-height: 1;
+}
+.pum-container #mc_embed_signup {
+  text-align: center;
+  h2 {
   }
 }
