@@ -18,6 +18,22 @@ function rr_stylesheet() {
 add_action( 'wp_enqueue_scripts', 'rr_stylesheet', 20 );
 
 /**
+ * Replace Largo's sticky navigation JS with one that doesn't hide on scroll
+ * @link https://github.com/INN/largo/blob/v0.5.5.3/inc/enqueue.php#L35-L42
+ */
+function rr_navigation_js() {
+	wp_dequeue_script( 'largo-navigation' );
+	wp_enqueue_script(
+		'rr-navigation',
+		get_stylesheet_directory_uri(). '/js/navigation.js',
+		array( 'largoCore' ),
+		largo_version(),
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'rr_navigation_js', 20 );
+
+/**
  * Include theme files
  *
  * Based off of how Largo loads files: https://github.com/INN/Largo/blob/master/functions.php#L358
