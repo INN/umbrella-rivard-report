@@ -90,7 +90,7 @@
     if ($(window).scrollTop() <= this.mainEl.offset().top && this.mainNavEl.is(':visible')) {
       this.stickyNavEl.removeClass('show');
       clearTimeout(this.scrollTimeout);
-      return;
+      return true;
     }
   }
 
@@ -122,24 +122,28 @@
         direction = this.scrollDirection(),
         callback, wait;
 
-    this.stickyNavScrollTopHide();
+    // if the situation is such that we hide the sticky nav, do not continue on to show the sticky nav.
+    if ( this.stickyNavScrollTopHide() ) {
+      return;
+    }
 
     this.stickyNavSetOffset();
 
-    // Abort if the scroll direction is the same as it was, or if the page has not been scrolled.
-    if (this.previousScroll == direction || !this.previousScroll ) {
+    // Abort if the sticky nav is already showing, or if the page has not been scrolled
+    if (this.stickyNavEl.hasClass( 'show' ) || !this.previousScroll ) {
       this.previousScroll = direction;
       return;
     }
 
     clearTimeout(this.scrollTimeout);
 
+    // as we scroll, in either direction, make the sticky nav appear
     if (direction == 'up') {
       callback = this.stickyNavEl.addClass.bind(this.stickyNavEl, 'show'),
-      wait = 250;
+      wait = 100;
     } else if (direction == 'down') {
-      callback = this.stickyNavEl.removeClass.bind(this.stickyNavEl, 'show');
-      wait = 500;
+      callback = this.stickyNavEl.addClass.bind(this.stickyNavEl, 'show');
+      wait = 100;
     }
 
     this.scrollTimeout = setTimeout(callback, wait);
