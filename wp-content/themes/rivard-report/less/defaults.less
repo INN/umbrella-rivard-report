@@ -135,6 +135,9 @@ h1 {
       text-transform: uppercase;
       margin-right:3.25em;
 
+      &:last-child {
+        margin-right: 0;
+      }
       .caret{
         display:none;
         padding:0 4px;
@@ -687,9 +690,9 @@ body.normal.single-post {
 }
 
 
-body.normal.page article.page>header h1, 
-body.normal.page article.post>header h1, 
-body.normal.single-post article.page>header h1, 
+body.normal.page article.page>header h1,
+body.normal.page article.post>header h1,
+body.normal.single-post article.page>header h1,
 body.normal.single-post article.post>header h1 {
   padding-top:1em;
 }
@@ -846,12 +849,14 @@ aside.related {
     }
   }
   #main-nav.navbar .nav>li {
-      margin-right: 2em;
+      margin-right: 1.5em;
   }
 }
 @media (max-width: 1000px) {
+  // this does not prevent wrapping if you have way too items in the nav
   #main-nav.navbar .nav>li {
-      margin-right: 1.75em;
+      margin-right: 1.30em;
+      font-size: 13px; //1px smaller
   }
 }
 @media (max-width: 768px) {
