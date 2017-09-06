@@ -34,8 +34,7 @@ add_filter( 'body_class', function( $classes ) {
 	<title>
 		<?php
 			global $page, $paged;
-			wp_title( '|', true, 'right' );
-			bloginfo( 'name' ); // Add the blog name.
+			wp_title( '' );
 
 			// Add the blog description for the home/front page.
 			$site_description = get_bloginfo( 'description', 'display' );
