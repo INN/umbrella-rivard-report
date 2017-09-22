@@ -164,3 +164,21 @@ function rr_interstitial( $counter, $context ) {
 	}
 }
 add_action( 'largo_loop_after_post_x', 'rr_interstitial', 10, 2 );
+
+/**
+ * Enqueue Js to modify the behavior of Popmake
+ */
+function rivard_popmake_js() {
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	if ( is_plugin_active( 'popup-maker/popup-maker.php' ) ) {
+		wp_enqueue_script(
+			'rr-popmake',
+			get_stylesheet_directory_uri(). '/js/popmake.js',
+			array( 'jquery', 'popup-maker-site' ), // depends upon both of these
+			null,
+			true
+		);
+		error_log(var_export( 'much wow', true));
+	}
+}
+add_action( 'wp_enqueue_scripts', 'rivard_popmake_js' );
