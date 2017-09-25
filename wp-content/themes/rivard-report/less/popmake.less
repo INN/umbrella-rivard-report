@@ -1,0 +1,37 @@
+/**
+ * popup styles for the newsletter subscribe form
+ *
+ * modified significantly from VOSD's styles, but borrowing from them for the [newsletter-list] shortcode's output.
+ */
+.pum-container {
+  margin-bottom: 0; // this is to override a style that was causing scrollbars
+}
+.pum-content {
+  font-size: 16px !important;
+  padding: 19px 30px 27px !important;
+
+  input {
+    font-family: @sans;
+  }
+  input[type=submit] {
+    background: @primary;
+    border-color: @primary;
+    border-style: solid;
+    color: #fff;
+    padding-top: 3px;
+    &:hover {
+      background: lighten( @primary, 10% );
+      border-color: lighten( @primary, 10% );
+    }
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+.pum-container #mc_embed_signup {
+  text-align: center;
+  p {
+    font-size: 16px;
+  }
+}
