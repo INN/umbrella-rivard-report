@@ -178,7 +178,6 @@ function rivard_popmake_js() {
 			null,
 			true
 		);
-		error_log(var_export( 'much wow', true));
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rivard_popmake_js' );
