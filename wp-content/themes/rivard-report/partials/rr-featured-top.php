@@ -8,7 +8,7 @@
 $thumbnail = get_the_post_thumbnail( $bigStoryPost->ID, 'rect_thumb' );
 $excerpt = largo_excerpt( $bigStoryPost, 1, false, '', false );
 
-	echo '<div '; post_class( 'rr-featured-top' ); echo '>';
+	echo '<div '; post_class( 'rr-featured-top', $bigStoryPost->ID ); echo '>';
 		if ( ! empty( $thumbnail ) ) {
 			?>
 				<h5 class="top-tag"><?php largo_top_term( array( 'post' => $bigStoryPost->ID ) ); ?></h5>
