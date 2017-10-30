@@ -18,22 +18,6 @@ function rr_stylesheet() {
 add_action( 'wp_enqueue_scripts', 'rr_stylesheet', 20 );
 
 /**
- * Replace Largo's sticky navigation JS with one that doesn't hide on scroll
- * @link https://github.com/INN/largo/blob/v0.5.5.3/inc/enqueue.php#L35-L42
- */
-function rr_navigation_js() {
-	wp_dequeue_script( 'largo-navigation' );
-	wp_enqueue_script(
-		'rr-navigation',
-		get_stylesheet_directory_uri(). '/js/navigation.js',
-		array( 'largoCore' ),
-		largo_version(),
-		true
-	);
-}
-add_action( 'wp_enqueue_scripts', 'rr_navigation_js', 20 );
-
-/**
  * Include theme files
  *
  * Based off of how Largo loads files: https://github.com/INN/Largo/blob/master/functions.php#L358
@@ -165,20 +149,28 @@ function rr_interstitial( $counter, $context ) {
 }
 add_action( 'largo_loop_after_post_x', 'rr_interstitial', 10, 2 );
 
-/**
- * Enqueue Js to modify the behavior of Popmake
- */
-function rivard_popmake_js() {
-	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-	if ( is_plugin_active( 'popup-maker/popup-maker.php' ) ) {
-		wp_enqueue_script(
-			'rr-popmake',
-			get_stylesheet_directory_uri(). '/js/popmake.js',
-			array( 'jquery', 'popup-maker-site' ), // depends upon both of these
-			null,
-			true
-		);
-		error_log(var_export( 'much wow', true));
+function rr_google_analytics() {
+	if ( ! is_user_logged_in() ) { // don't track logged in users ?>
+		<script>
+			( function ( i, s, o, g, r, a, m ) {i['GoogleAnalyticsObject']=r;i[r]=i[r]|| function() {( i[r].q=i[r].q||[] ).push( arguments )},i[r].l=1*new Date();a=s.createElement( o ), m=s.getElementsByTagName( o )[0];a.async=1;a.src=g;m.parentNode.insertBefore( a, m )} )
+			( window,document,'script','https://www.google-analytics.com/analytics.js','ga' );
+			ga( 'create', 'UA-29477818-1', 'auto' );
+			<?php
+			global $post, $wp_query;
+			if ( is_singular() ) {
+				if ( has_term( 15314, 'category' ) ) {
+					echo "ga( 'set', 'contentGroup1', 'health-wellness' );\n";
+				}
+			} elseif ( is_tax() || is_archive() ) {
+				$term = $wp_query->get_queried_object();
+				if ( ! empty( $term ) && isset( $term->term_id ) && 15314 == $term->term_id ) {
+					echo "ga( 'set', 'contentGroup1', 'health-wellness' );\n";
+				}
+			}
+			?>
+			ga( 'send', 'pageview' );
+		</script>
+		<?php
 	}
 }
-add_action( 'wp_enqueue_scripts', 'rivard_popmake_js' );
+add_action( 'wp_head', 'rr_google_analytics' );
