@@ -178,7 +178,33 @@ function rivard_popmake_js() {
 			null,
 			true
 		);
-		error_log(var_export( 'much wow', true));
+		error_log(var_export( 'error', true));
 	}
 }
 add_action( 'wp_enqueue_scripts', 'rivard_popmake_js' );
+
+function rr_google_analytics() {
+	if ( ! is_user_logged_in() ) { // don't track logged in users ?>
+		<script>
+			( function ( i, s, o, g, r, a, m ) {i['GoogleAnalyticsObject']=r;i[r]=i[r]|| function() {( i[r].q=i[r].q||[] ).push( arguments )},i[r].l=1*new Date();a=s.createElement( o ), m=s.getElementsByTagName( o )[0];a.async=1;a.src=g;m.parentNode.insertBefore( a, m )} )
+			( window,document,'script','https://www.google-analytics.com/analytics.js','ga' );
+			ga( 'create', 'UA-29477818-1', 'auto' );
+			<?php
+			global $post, $wp_query;
+			if ( is_singular() ) {
+				if ( has_term( 15314, 'category' ) ) {
+					echo "ga( 'set', 'contentGroup1', 'health-wellness' );\n";
+				}
+			} elseif ( is_tax() || is_archive() ) {
+				$term = $wp_query->get_queried_object();
+				if ( ! empty( $term ) && isset( $term->term_id ) && 15314 == $term->term_id ) {
+					echo "ga( 'set', 'contentGroup1', 'health-wellness' );\n";
+				}
+			}
+			?>
+			ga( 'send', 'pageview' );
+		</script>
+		<?php
+	}
+}
+add_action( 'wp_head', 'rr_google_analytics' );
