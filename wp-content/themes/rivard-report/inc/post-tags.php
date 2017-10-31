@@ -56,3 +56,32 @@ add_action('largo_before_comments', 'rr_fake_comments_link');
  * @since Largo 0.5.5.1
  */
 add_action( 'largo_after_hero', 'largo_after_hero_largo_edited_date', 5 );
+
+/**
+ * Fix for https://github.com/INN/largo/issues/1474
+ *
+ * Add the post's top term to the post's post_class array
+ * @link https://github.com/INN/Largo/issues/1119
+ * @since 0.5.5
+ * @filter post_class
+ * @param array    $classes An array of classes on the post
+ * @param array    $class   An array of additional classes added to the post
+ * @param int|null $post_id The post ID.
+ * @return array
+ */
+function rr_post_class_top_term( $classes = array(), $class = array(), $post_id = null ) {
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_id();
+	}
+	$top_term = get_post_meta( $post_id, 'top_term', TRUE );
+	$term = get_term_by( 'id', $top_term, 'post_tag' );
+
+	// Don't output the class .top-term-- if there isn't a top term saved
+	if ( !empty( $term ) ) {
+		$classes[] = 'top-term-' . $term->taxonomy . '-' . $term->slug;
+	}
+
+	return $classes;
+}
+remove_filter( 'post_class', 'largo_post_class_top_term', 10 );
+add_filter( 'post_class', 'rr_post_class_top_term', 10, 3 );
