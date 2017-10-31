@@ -37,10 +37,11 @@ $queried_object = get_queried_object();
 	<?php
 		/**
 		 * Output per-category sidebar here
+		 *
 		 * @link https://bavotasan.com/2012/create-widgetized-sidebars-for-each-category-in-wordpress/
 		 */
 		$sidebar_id = ( is_category() ) ? sanitize_title( get_cat_name( get_query_var( 'cat' ) ) ) . '-sidebar' : 'sidebar';
-		if( is_active_sidebar( $sidebar_id ) ) {
+		if ( is_active_sidebar( $sidebar_id ) ) {
 			echo '<h6 class="clearfix by">Presented by</h6>';
 			echo '<div class="items">';
 			dynamic_sidebar( $sidebar_id );
@@ -49,7 +50,8 @@ $queried_object = get_queried_object();
 	?>
 	</section>
 
-	<?php if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
+	<?php
+	if ( $paged < 2 && of_get_option( 'hide_category_featured' ) == '0' ) {
 		$featured_posts = rr_get_featured_posts_in_category( $wp_query->query_vars['category_name'] );
 		if ( count( $featured_posts ) > 0 ) {
 			$top_featured = $featured_posts[0];
@@ -89,7 +91,7 @@ $queried_object = get_queried_object();
 								</div>
 							</div>
 						</div>
-						<?
+						<?php
 					}
 				} ?>
 				</div>
@@ -100,13 +102,13 @@ $queried_object = get_queried_object();
 </div>
 
 <div id="category-ad-zone" class="ad-zone row-fluid">
-	<?php if (!dynamic_sidebar('Category Ad Zone')) { ?>
+	<?php if ( ! dynamic_sidebar( 'Category Ad Zone' ) ) { ?>
 		<aside style="display:block;width:768px;height:90px;margin-left: auto; margin-right: auto;background-color:#ddd;color:#bb0000; text-align: center;"> Add a 768x90 ad widget to the "Home Below Top Stories" sidebar</aside>
 	<?php } ?>
 </div>
 
 <?php
-/**
+/*
  * here go the children categories of the category
  * each should be span4 button
  * may be n many, needs to collapse to 2 and 1 columns as appropriate
@@ -116,7 +118,8 @@ $queried_object = get_queried_object();
 	) );
 
 	// only output this area if there are child categories
-	if ( count($children) > 0 ) { ?>
+	if ( count($children) > 0 ) {
+	?>
 
 		<div id="category-children">
 			<h5 class="heading-treatment"><?php _e( 'Topics', 'rr' ); ?></h5>
@@ -143,27 +146,27 @@ $queried_object = get_queried_object();
 <div class="row-fluid clearfix">
 	<div class="stories span8" role="main" id="content">
 		<h2 class="heading-treatment"><span><?php _e( 'The Latest', 'rr' ); ?></span></h2>
-		
-	<?php
-		do_action( 'largo_before_category_river' );
-		if ( have_posts() ) {
-			$counter = 1;
-			while ( have_posts() ) {
-				the_post();
-				$post_type = get_post_type();
-				$partial = largo_get_partial_by_post_type( 'archive', $post_type, 'archive' );
-				get_template_part( 'partials/content', 'archive' );
-				do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
-				$counter++;
+		<?php
+			do_action( 'largo_before_category_river' );
+			if ( have_posts() ) {
+				$counter = 1;
+				while ( have_posts() ) {
+					the_post();
+					$post_type = get_post_type();
+					$partial = largo_get_partial_by_post_type( 'archive', $post_type, 'archive' );
+					get_template_part( 'partials/content', 'archive' );
+					do_action( 'largo_loop_after_post_x', $counter, $context = 'archive' );
+					$counter++;
+				}
+				largo_content_nav( 'nav-below' );
+			} else {
+				get_template_part( 'partials/content', 'not-found' );
 			}
-			largo_content_nav( 'nav-below' );
-		} else {
-			get_template_part( 'partials/content', 'not-found' );
-		}
-		do_action( 'largo_after_category_river' );
-	?>
+			do_action( 'largo_after_category_river' );
+		?>
 	</div>
 	<?php get_sidebar(); ?>
 </div>
 
-<?php get_footer();
+<?php
+get_footer();
