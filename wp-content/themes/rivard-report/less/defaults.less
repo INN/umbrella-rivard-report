@@ -133,7 +133,7 @@ h1 {
       font-family:@sans-bold;
       font-size:14px;
       text-transform: uppercase;
-      margin-right:3.25em;
+      margin-right:3.0em;
 
       &:last-child {
         margin-right: 0;
@@ -810,6 +810,18 @@ aside.related {
   -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
+}
+#respond .comment-form-author .required,
+#respond .comment-form-email .required {
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: inherit;
+}
+
+// fix for the form being too small to type in on Safari
+#respond input[type=text] {
+  height: auto;
 }
 
 .alert-wrapper {

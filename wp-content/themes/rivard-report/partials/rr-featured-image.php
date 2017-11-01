@@ -7,7 +7,7 @@
 
 $thumbnail = get_the_post_thumbnail( $featured->ID, 'rect_thumb' );
 ?>
-	<div <?php post_class( 'rr-featured-image' ); ?>>
+	<div <?php post_class( 'rr-featured-image', $featured->ID ); ?>>
 		<div class="">
 			<div class="<?php echo join( ' ', $post_classes ); ?> ">
 
