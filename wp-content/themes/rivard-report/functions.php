@@ -207,3 +207,13 @@ function rr_google_analytics() {
 	}
 }
 add_action( 'wp_head', 'rr_google_analytics' );
+
+/**
+ * Adding this because Rivard uses Yoast to handle SEO and Open Graph tags
+ *
+ * @link https://jetpack.com/2013/05/03/remove-open-graph-meta-tags/
+ * @since Jetpack 5.7
+ * @since Yoast 6.0
+ * @since 2017-01-05
+ */
+add_filter( 'jetpack_enable_open_graph', '__return_false' );
