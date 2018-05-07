@@ -10,10 +10,21 @@
 					array(
 						'post_type' => 'inn_member',
 						'posts_per_page' => 500,
-						'order' => 'ASC',
-						'orderby' => 'title',
 						'meta_key'   => '_level',
-						'meta_value'  => 25000
+						'meta_query' => array(
+				            array(
+				                'key' => '_level'
+				            ),
+				            array(
+				                'key' => '_level',
+				                'value' => 23000,
+				                'compare' => '>='
+				            )
+				        ),
+						'orderby' => array( 
+					       '_level'      => 'DESC', 
+					       'title' => 'ASC' 
+					    ) 
 					)
 				);
 				?>

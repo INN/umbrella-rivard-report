@@ -6,15 +6,15 @@
 function inn_member_directory() {
 
 	$labels = array(
-		'name'                  => _x( 'Members', 'Post Type General Name', 'inn' ),
-		'singular_name'         => _x( 'Member', 'Post Type Singular Name', 'inn' ),
-		'menu_name'             => __( 'INN Members', 'inn' ),
-		'name_admin_bar'        => __( 'INN Members', 'inn' ),
-		'archives'              => __( 'INN Member Archives', 'inn' ),
-		'attributes'            => __( 'INN Member Attributes', 'inn' ),
+		'name'                  => _x( 'Donors', 'Post Type General Name', 'inn' ),
+		'singular_name'         => _x( 'Donor', 'Post Type Singular Name', 'inn' ),
+		'menu_name'             => __( 'Donors', 'inn' ),
+		'name_admin_bar'        => __( 'Donors', 'inn' ),
+		'archives'              => __( 'Donor Archives', 'inn' ),
+		'attributes'            => __( 'Donor Attributes', 'inn' ),
 		'parent_item_colon'     => __( '', 'inn' ),
-		'all_items'             => __( 'All Members', 'inn' ),
-		'add_new_item'          => __( 'Add New Member', 'inn' ),
+		'all_items'             => __( 'All Donors', 'inn' ),
+		'add_new_item'          => __( 'Add New Donor', 'inn' ),
 		'add_new'               => __( 'Add New', 'inn' ),
 		'new_item'              => __( 'New Item', 'inn' ),
 		'edit_item'             => __( 'Edit Item', 'inn' ),
@@ -35,8 +35,8 @@ function inn_member_directory() {
 		'filter_items_list'     => __( 'Filter items list', 'inn' ),
 	);
 	$args = array(
-		'label'                 => __( 'Member', 'inn' ),
-		'description'           => __( 'INN Member Directory', 'inn' ),
+		'label'                 => __( 'Donor', 'inn' ),
+		'description'           => __( 'Donor Directory', 'inn' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', ),
 		'hierarchical'          => false,
@@ -45,7 +45,7 @@ function inn_member_directory() {
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
 		'menu_icon'             => 'dashicons-admin-users',
-		'rewrite'               => array( 'slug' => 'members' ),
+		'rewrite'               => array( 'slug' => 'donors' ),
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
