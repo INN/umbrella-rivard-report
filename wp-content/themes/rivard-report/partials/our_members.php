@@ -1,5 +1,5 @@
 <section id="members" class="normal">
-	<h3><a href="/members/"><span>$150,000</span></a></h3>
+	<h3>$150,000</h3>
 
 	<div class="inn-members-widget">
 		<div class="member-wrapper widget-content">
@@ -32,7 +32,7 @@
 		</div>
 	</div>
 
-	<h3><a href="/members/"><span>$100,000</span></a></h3>
+	<h3>$100,000</h3>
 
 	<div class="inn-members-widget">
 		<div class="member-wrapper widget-content">
