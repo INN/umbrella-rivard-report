@@ -7,6 +7,16 @@
 define( 'INN_MEMBER', true );
 
 
+
+// Includes
+$includes = array(
+	'/inc/member-directory.php',
+);
+foreach ( $includes as $include ) {
+	require_once( get_stylesheet_directory() . $include );
+}
+
+
 /**
  * Include compiled style.css
  */
