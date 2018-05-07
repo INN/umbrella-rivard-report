@@ -232,31 +232,13 @@ function inn_member_info() {
 	) );
 
 		$member_info->add_field( array(
-			'name'       => __( 'Year Founded', 'cmb2' ),
+			'name'       => __( 'Donor Level', 'cmb2' ),
 			'desc'       => __( '', 'cmb2' ),
-			'id'         => $prefix . 'year_founded',
+			'id'         => $prefix . 'level',
 			'type'       => 'text_small',
 			'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
 			'sanitization_cb' => 'absint', // custom sanitization callback parameter
 			'escape_cb'       => 'absint',  // custom escaping callback parameter
-		) );
-
-		$member_info->add_field( array(
-			'name'       => __( 'INN Member Since', 'cmb2' ),
-			'desc'       => __( '', 'cmb2' ),
-			'id'         => $prefix . 'inn_join_year',
-			'type'       => 'text_small',
-			'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-			'sanitization_cb' => 'absint', // custom sanitization callback parameter
-			'escape_cb'       => 'absint',  // custom escaping callback parameter
-		) );
-
-		// Email text field
-		$member_info->add_field( array(
-			'name' => __( 'Contact Email', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'email',
-			'type' => 'text_email',
 		) );
 
 		$member_info->add_field( array(
@@ -265,68 +247,6 @@ function inn_member_info() {
 			'id'   => $prefix . 'url',
 			'type' => 'text_url',
 			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Donate URL', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'donate_url',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'RSS Feed', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'rss_feed',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Twitter Profile', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'twitter_url',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Facebook Page', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'facebook_url',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Youtube URL', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'youtube_url',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Google+ URL', 'inn' ),
-			'desc' => __( '', 'cmb2' ),
-			'id'   => $prefix . 'google_plus_url',
-			'type' => 'text_url',
-			'protocols' => array( 'http', 'https' ), // Array of allowed protocols
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Contact Phone', 'inn' ),
-			'desc' => __( '', 'inn' ),
-			'id'   => $prefix . 'phone_number',
-			'type' => 'text_small',
-		) );
-
-		$member_info->add_field( array(
-			'name' => __( 'Address', 'inn' ),
-			'desc' => __( '', 'inn' ),
-			'id'   => $prefix . 'address',
-			'type' => 'address',
 		) );
 
 }
