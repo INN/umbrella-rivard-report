@@ -30,7 +30,14 @@
 						<?php setup_postdata( $post ); ?>
 						<li id="member-list-<?php echo $post->ID;?>">
 							<a href="<?php echo get_post_meta( $post->ID, '_url', true ); ?>" class="member-thumb" title="<?php echo get_the_title(); ?>">
-								<?php the_post_thumbnail('medium'); ?>
+								<?php
+								if ( has_post_thumbnail() ) {
+								    the_post_thumbnail('medium');
+								}
+								else {
+								    echo '<div class="donor-without-image"><div>' . get_the_title() . '</div></div>';
+								}
+								?>
 							</a>
 							<div class="donor-level">
 								<?php echo "$",number_format(get_post_meta( $post->ID, '_level', true )); ?>
