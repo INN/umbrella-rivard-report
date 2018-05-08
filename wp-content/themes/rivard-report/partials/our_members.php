@@ -1,5 +1,4 @@
 <section id="members" class="normal">
-	<h3>$150,000</h3>
 
 	<div class="inn-members-widget">
 		<div class="member-wrapper widget-content">
@@ -17,7 +16,7 @@
 				            ),
 				            array(
 				                'key' => '_level',
-				                'value' => 23000,
+				                'value' => 100000,
 				                'compare' => '>='
 				            )
 				        ),
@@ -29,6 +28,7 @@
 				);
 				?>
 				<?php if ( $query->have_posts() ) : ?>
+					<h4>$100,000 and up</h4>
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 						<?php setup_postdata( $post ); ?>
 						<li id="member-list-<?php echo $post->ID;?>">
@@ -43,8 +43,6 @@
 		</div>
 	</div>
 
-	<h3>$100,000</h3>
-
 	<div class="inn-members-widget">
 		<div class="member-wrapper widget-content">
 			<ul class="members">
@@ -54,14 +52,26 @@
 					array(
 						'post_type' => 'inn_member',
 						'posts_per_page' => 500,
-						'order' => 'ASC',
-						'orderby' => 'title',
 						'meta_key'   => '_level',
-						'meta_value'  => 50000
+						'meta_query' => array(
+				            array(
+				                'key' => '_level'
+				            ),
+				            array(
+				                'key' => '_level',
+				                'value' => 100000,
+				                'compare' => '<'
+				            )
+				        ),
+						'orderby' => array( 
+					       '_level'      => 'DESC', 
+					       'title' => 'ASC' 
+					    ) 
 					)
 				);
 				?>
 				<?php if ( $query->have_posts() ) : ?>
+					<h4>Up to $100,000</h4>
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 						<?php setup_postdata( $post ); ?>
 						<li id="member-list-<?php echo $post->ID;?>">
