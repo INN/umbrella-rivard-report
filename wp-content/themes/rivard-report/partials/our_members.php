@@ -28,7 +28,7 @@
 					<h4>Our Donors</h4>
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 						<?php setup_postdata( $post ); ?>
-						<li id="member-list-<?php echo $post->ID;?>">
+						<li id="member-list-<?php echo $post->ID;?>" class="donor-item">
 							<a href="<?php echo get_post_meta( $post->ID, '_url', true ); ?>" class="member-thumb" title="<?php echo get_the_title(); ?>">
 								<?php
 								if ( has_post_thumbnail() ) {
