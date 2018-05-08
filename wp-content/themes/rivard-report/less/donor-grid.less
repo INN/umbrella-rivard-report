@@ -63,18 +63,10 @@
   position: relative;
   display: block;
   text-decoration: none;
-  border:1px solid @neutral2;
+  border:1px solid #999;
   height:50px;
   width:160px;
   overflow:hidden;
-  /*-webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);*/
 }
 .inn-members-widget .member-wrapper li div.donor-without-image {
   padding: 3px 6px;
@@ -86,75 +78,15 @@
     bottom: 6px;
   }
 }
-.inn-members-widget .member-details-wrapper {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  background: white;
-  background: rgba(255, 255, 255, 0.95);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border: 1px solid white;
-  padding: 25px;
-}
-.inn-members-widget .member-details-wrapper h2 {
-  font-size: 34px;
-  margin-bottom: 0.2em;
-  line-height: 1.2em;
-}
-.inn-members-widget .member-details-wrapper .social {
-  display: none;
-}
-.inn-members-widget .member-details-wrapper .inn_member > div {
-  width: 76%;
-}
-.inn-members-widget .close {
-  cursor: pointer;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 24px;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
-  opacity: 0.6;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-.inn-members-widget .close:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-}
+
 .inn-members-widget .donor-level {
     font-size: .75rem;
-    background-color:@neutral2;
+    background-color:#999;
     color: @white;
     padding: 0 5px;
     text-align: center;
+    font-family: @sans-bold;
 }
 @media screen and (max-width: 767px) {
-  .inn-members-widget h3 span {
-    display: block;
-  }
-  .inn-members-widget h3 ul {
-    float: left;
-    text-align: left;
-    margin-top: 0.5;
-  }
-  .inn-members-widget h3 ul li {
-    display: block;
-    margin: 0.65em 0;
-  }
-  .inn-members-widget h3 ul a {
-    font-size: 18px;
-  }
+
 }
