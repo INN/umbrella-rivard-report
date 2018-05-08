@@ -12,12 +12,10 @@
 						'meta_key'   => '_level',
 						'meta_query' => array(
 				            array(
-				                'key' => '_level'
-				            ),
-				            array(
 				                'key' => '_level',
-				                'value' => 100000,
-				                'compare' => '>='
+				                'value' => 40000,
+				                'compare' => '>=',
+				                'type' => 'numeric'
 				            )
 				        ),
 						'orderby' => array( 
@@ -55,12 +53,10 @@
 						'meta_key'   => '_level',
 						'meta_query' => array(
 				            array(
-				                'key' => '_level'
-				            ),
-				            array(
 				                'key' => '_level',
-				                'value' => 100000,
-				                'compare' => '<'
+				                'value' => 40000,
+				                'compare' => '<',
+				                'type' => 'numeric'
 				            )
 				        ),
 						'orderby' => array( 
