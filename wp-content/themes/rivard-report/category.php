@@ -79,7 +79,7 @@ $queried_object = get_queried_object();
 					foreach ( $secondary_featured as $idx => $featured ) {
 						$shown_ids[] = $featured->ID;
 						$thumbnail = get_the_post_thumbnail( $featured->ID, 'rect_thumb' );
-						$post_classes = get_post_class( $additional, $recent->ID );
+						$post_classes = get_post_class( $additional, $featured->ID );
 						?>
 						<div class="rr-featured-smaller">
 							<div class="">
