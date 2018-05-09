@@ -232,7 +232,7 @@ function inn_member_info() {
 	) );
 
 		$member_info->add_field( array(
-			'name'       => __( 'Donor Level', 'cmb2' ),
+			'name'       => __( 'Donor Amount (Omit $ Signs and Commas)', 'cmb2' ),
 			'desc'       => __( '', 'cmb2' ),
 			'id'         => $prefix . 'level',
 			'type'       => 'text_small',
