@@ -1,4 +1,4 @@
-<section id="members" class="normal">
+<section id="members" class="clearfix">
 
 	<div class="inn-members-widget">
 		<div class="member-wrapper widget-content">
@@ -25,7 +25,7 @@
 				);
 				?>
 				<?php if ( $query->have_posts() ) : ?>
-					<h4>Our Donors</h4>
+					<h4>Business and Nonprofit Members</h4>
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 						<?php setup_postdata( $post ); ?>
 						<li id="member-list-<?php echo $post->ID;?>" class="donor-item">
