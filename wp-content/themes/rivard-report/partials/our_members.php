@@ -25,7 +25,8 @@
 				);
 				?>
 				<?php if ( $query->have_posts() ) : ?>
-					<h4>Business and Nonprofit Members</h4>
+					<h4>Meet our business and nonprofit members</h4>
+					<p>Listed in order of annual donation amount:</p>
 					<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 						<?php setup_postdata( $post ); ?>
 						<li id="member-list-<?php echo $post->ID;?>" class="donor-item">
