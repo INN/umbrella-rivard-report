@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
 	$('.rivard-donation-form').show();
 
 	// for donation page
-	if ($('body').hasClass('page-id-184947')){
+	if ($('body').hasClass('page-id-184947') || $('body').hasClass('page-id-1975775')){
 		$('.rivard-donation-form').hide();
 		var selected = $('input[name="membership-type"]:checked').val();
 		console.log(selected);
