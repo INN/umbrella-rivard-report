@@ -60,7 +60,8 @@ function largo_child_require_files() {
 	$includes = array(
 		'/homepages/layouts/RivardReportHomepage.php',
 		'/inc/post-tags.php',
-		'/inc/taxonomies.php'
+		'/inc/taxonomies.php',
+		'/inc/enqueue.php',
 	);
 
 
