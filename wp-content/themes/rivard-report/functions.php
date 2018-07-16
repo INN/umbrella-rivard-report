@@ -64,14 +64,15 @@ function largo_child_require_files() {
 		'/inc/enqueue.php',
 	);
 
-
 	if ( class_exists( 'WP_CLI_Command' ) ) {
 		require __DIR__ . '/inc/cli.php';
 		WP_CLI::add_command( 'rr', 'RR_WP_CLI' );
 	}
 
 	foreach ($includes as $include ) {
-		require_once( get_stylesheet_directory() . $include );
+		if ( 0 === validate_file( get_stylesheet_directory() . $include ) ) {
+			require_once( get_stylesheet_directory() . $include );
+		}
 	}
 }
 add_action( 'after_setup_theme', 'largo_child_require_files' );
