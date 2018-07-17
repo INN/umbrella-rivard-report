@@ -60,9 +60,9 @@ function largo_child_require_files() {
 	$includes = array(
 		'/homepages/layouts/RivardReportHomepage.php',
 		'/inc/post-tags.php',
-		'/inc/taxonomies.php'
+		'/inc/taxonomies.php',
+		'/inc/enqueue.php',
 	);
-
 
 	if ( class_exists( 'WP_CLI_Command' ) ) {
 		require __DIR__ . '/inc/cli.php';
@@ -70,7 +70,9 @@ function largo_child_require_files() {
 	}
 
 	foreach ($includes as $include ) {
-		require_once( get_stylesheet_directory() . $include );
+		if ( 0 === validate_file( get_stylesheet_directory() . $include ) ) {
+			require_once( get_stylesheet_directory() . $include );
+		}
 	}
 }
 add_action( 'after_setup_theme', 'largo_child_require_files' );
