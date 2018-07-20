@@ -131,10 +131,13 @@ class RivardReportHome extends Homepage {
 			$shown_ids[] = $recent->ID;
 			$additional = array( 'post-lead' );
 			$post_classes = get_post_class( $additional, $recent->ID );
+			if ( is_array( $post_classes ) ) {
+				$post_classes = join( ' ', $post_classes );
+			}
 		?>
 			<div class="rr-recent-smaller">
 				<div class="">
-					<div class="<?php echo join( ' ', $post_classes ); ?> ">
+					<div class="<?php echo esc_attr( $post_classes ); ?> ">
 						<h5 class="top-tag"><?php largo_top_term( array( 'post' => $recent->ID ) ); ?></h5>
 						<h3><a href="<?php echo esc_url( get_permalink( $recent->ID ) ); ?>"><?php echo $recent->post_title; ?></a></h3>
 						<h5 class="byline"><?php largo_byline( true, true, $recent->ID ); ?></h5>

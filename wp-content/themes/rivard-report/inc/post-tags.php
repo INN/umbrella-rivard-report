@@ -84,7 +84,7 @@ function rr_post_class_top_term( $classes = array(), $class = array(), $post_id 
 	$top_term_id = get_post_meta( $post_id, 'top_term', true );
 
 	if ( empty( $top_term_id ) ) {
-		return;
+		return $classes;
 	}
 
 	// add fallback class in the event that the saved top term
