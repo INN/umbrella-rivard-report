@@ -1,36 +1,41 @@
 <?php
+/**
+ * The Rivard Report homepage layout class, and its supporting functions.
+ *
+ * The template for this homepage is in ../templates/rr-homepage.php
+ */
 
-include_once get_template_directory() . '/homepages/homepage-class.php';
+require_once get_template_directory() . '/homepages/homepage-class.php';
 
 class RivardReportHome extends Homepage {
 
-	function __construct($options=array()) {
-		$suffix = (LARGO_DEBUG)? '' : '.min';
+	public function __construct( $options = array() ) {
+		$suffix = ( LARGO_DEBUG ) ? '' : '.min';
 
 		$defaults = array(
-			'name' => __('Rivard Report Homepage Template', 'largo'),
+			'name' => __( 'Rivard Report Homepage Template', 'largo' ),
 			'type' => 'rrlargo',
-			'description' => __('A single big story at the top, with three smaller stories beside it. Banner ad. 5 stories with a sidebar. Resources and guides widget area. Banner ad. Widget area for "The Latest" posts. Widget area for "Multimedia" posts. Widget area for "Featured Series" posts. Widget area for "Topics" posts. Membership info widget area.', 'largo'),
+			'description' => __( 'A single big story at the top, with three smaller stories beside it. Banner ad. 5 stories with a sidebar. Resources and guides widget area. Banner ad. Widget area for "The Latest" posts. Widget area for "Multimedia" posts. Widget area for "Featured Series" posts. Widget area for "Topics" posts. Membership info widget area.', 'largo' ),
 			'template' => get_stylesheet_directory() . '/homepages/templates/rr-homepage.php',
 			'assets' => array(
 				array( 'homepage-single', get_stylesheet_directory_uri() . '/homepages/assets/css/homepage' . $suffix . '.css', array() ),
 			),
 			'prominenceTerms' => array(
 				array(
-					'name' => __('Top Story', 'largo'),
-					'description' => __('If you are using a "Big story" homepage layout, add this label to a post to make it the top story on the homepage', 'largo'),
-					'slug' => 'top-story'
-				)
-			)
+					'name' => __( 'Top Story', 'largo' ),
+					'description' => __( 'If you are using a "Big story" homepage layout, add this label to a post to make it the top story on the homepage', 'largo' ),
+					'slug' => 'top-story',
+				),
+			),
 		);
-		$options = array_merge($defaults, $options);
-		parent::__construct($options);
+		$options = array_merge( $defaults, $options );
+		parent::__construct( $options );
 	}
 
-	function topStory() {
+	public function topStory() {
 		global $shown_ids;
 
-		$topstory = largo_home_single_top(); // this handles all the fallbacks required
+		$topstory = largo_home_single_top(); // this handles all the fallbacks required.
 
 		$bigStoryPost = largo_home_single_top();
 		$shown_ids[] = $bigStoryPost->ID;
@@ -55,17 +60,19 @@ class RivardReportHome extends Homepage {
 	/**
 	 * The four stories underneath the homepage top story
 	 */
-	function homeFeatured() {
+	public function homeFeatured() {
 		global $shown_ids, $post;
 		ob_start();
 
 		$how_many = 4;
 
-		$featured_stories = largo_home_featured_stories( $how_many );
+		//$featured_stories = largo_home_featured_stories( $how_many );
+		$featured_stories = array();
 
 		if ( count( $featured_stories ) < $how_many ) {
-			$recent_stories = wp_get_recent_posts( array(
+			$recent_stories_query = new WP_Query( array(
 				'numberposts' => $how_many - count( $featured_stories ),
+				'posts_per_page' => $how_many - count( $featured_stories ),
 				'offset' => 0,
 				'cat' => 0,
 				'orderby' => 'post_date',
@@ -74,10 +81,13 @@ class RivardReportHome extends Homepage {
 				'post_type' => 'post',
 				'post_status' => 'publish',
 			), 'OBJECT');
-			$featured_stories = array_merge( $featured_stories, $recent_stories );
+			if( ! is_404() ) {
+				error_log(var_export( $recent_stories_query, true));
+			}
+			$featured_stories = array_merge( $featured_stories, $recent_stories_query->posts );
 		}
 
-		foreach( $featured_stories as $featured ) {
+		foreach ( $featured_stories as $featured ) {
 			setup_postdata( $featured->ID );
 			$post = $featured;
 			$shown_ids[] = $featured->ID;
@@ -90,12 +100,10 @@ class RivardReportHome extends Homepage {
 				array(
 					'post' => $post,
 					'post_classes' => $post_classes,
-					'featured' => $featured
+					'featured' => $featured,
 				)
 			);
-
 		}
-
 
 		$ret = ob_get_contents();
 		ob_end_clean();
@@ -105,27 +113,28 @@ class RivardReportHome extends Homepage {
 	}
 
 	/**
-	 * contained within span8, 4 recent posts, excluding Homepage Featured
+	 * Contained within span8, 4 recent posts, excluding Homepage Featured.
 	 */
-	function homeRecent() {
+	public function homeRecent() {
 		global $shown_ids, $post;
 		ob_start();
 
 		$how_many = 4;
 
 		$featured_stories = largo_home_featured_stories( $how_many );
-		$featured_stories = wp_list_pluck( $featured_stories, 'ID' ); // convert this to an array of ids
+		$featured_stories = wp_list_pluck( $featured_stories, 'ID' ); // converting this array of WP_Posts to an array of ids.
 
-		$recent_stories = get_posts( array(
+		$recent_stories = new WP_Query( array(
 			'numberposts' => $how_many,
+			'posts_per_page' => $how_many,
 			'orderby' => 'post_date',
 			'order' => 'DESC',
 			'post_type' => 'post',
 			'post_status' => 'publish',
-			'post__not_in' => array_merge( $featured_stories, $shown_ids ) // exclude Homepage Featured and shown posts
+			'post__not_in' => array_merge( $featured_stories, $shown_ids ), // exclude Homepage Featured and shown posts.
 		) );
 
-		foreach( $recent_stories as $recent ) {
+		foreach ( $recent_stories->posts as $recent ) {
 			setup_postdata( $recent->ID );
 			$post = $recent;
 			$shown_ids[] = $recent->ID;
@@ -146,7 +155,6 @@ class RivardReportHome extends Homepage {
 			</div>
 		<?php
 		}
-
 
 		$ret = ob_get_contents();
 		ob_end_clean();
@@ -169,10 +177,11 @@ function rr_custom_homepage_layouts() {
 		'HomepageSingleWithFeatured',
 		'HomepageSingleWithSeriesStories',
 		'TopStories',
-		'LegacyThreeColumn'
+		'LegacyThreeColumn',
 	);
-	foreach ( $unregister as $layout )
+	foreach ( $unregister as $layout ) {
 		unregister_homepage_layout( $layout );
+	}
 	register_homepage_layout( 'RivardReportHome' );
 }
 add_action( 'init', 'rr_custom_homepage_layouts', 10 );
@@ -190,7 +199,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-below-top-stories',
 			'description'  => __( 'You should put one advertisement widget here.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span12 clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="visuallyhidden">',
 			'after_title' => '</h3>',
 		),
@@ -199,7 +208,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-sidebar',
 			'description' => __( 'This is the right-hand sidebar area on the homepage. Don\'t put more than two widgets here.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
@@ -208,16 +217,16 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-resources-and-guides',
 			'description' => __( 'This area should have three widgets linking to resources and guides.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span4">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
 		array(
 			'name' => __( 'Home Banner Ad Middle', 'rr' ),
 			'id' => 'home-banner-ad-middle',
-			'description'  => __('You should put one advertisement widget here.', 'rr' ),
+			'description'  => __( 'You should put one advertisement widget here.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span12 clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="visuallyhidden">',
 			'after_title' => '</h3>',
 		),
@@ -226,7 +235,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-the-latest',
 			'description' => __( 'This area should be filled with three Largo Recent Posts widgets.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span12 clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
@@ -235,7 +244,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-topics',
 			'description' => __( 'This area should be filled with Largo Recent Posts widgets.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span12 clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
@@ -249,7 +258,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-multimedia',
 			'description' => __( 'This area should be filled with two Largo Recent Posts widgets.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span12 clearfix">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
@@ -258,7 +267,7 @@ function rr_add_homepage_widget_areas() {
 			'id' => 'home-membership-info',
 			'description' => __( 'This area should have three widgets linking to resources and guides.', 'rr' ),
 			'before_widget' => '<aside id="%1$s" class="%2$s span4">',
-			'after_widget' => "</aside>",
+			'after_widget' => '</aside>',
 			'before_title' => '<h3 class="widgettitle">',
 			'after_title' => '</h3>',
 		),
