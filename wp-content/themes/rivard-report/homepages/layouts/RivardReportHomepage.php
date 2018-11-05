@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Rivard Report homepage layout class, and its supporting functions.
  *
@@ -81,9 +82,6 @@ class RivardReportHome extends Homepage {
 				'post_type' => 'post',
 				'post_status' => 'publish',
 			), 'OBJECT');
-			if( ! is_404() ) {
-				error_log(var_export( $recent_stories_query, true));
-			}
 			$featured_stories = array_merge( $featured_stories, $recent_stories_query->posts );
 		}
 
@@ -278,3 +276,33 @@ function rr_add_homepage_widget_areas() {
 	}
 }
 add_action( 'widgets_init', 'rr_add_homepage_widget_areas' );
+
+/**
+ * A function to modify all homepage queries, to ensure that they do not return "Homepage Hidden" posts
+ *
+ * Rivard does not have a Load More Posts button on their homepage at this time, so we don't need to use it here.
+ *
+ * @link https://secure.helpscout.net/conversation/682348677/2630?folderId=1219602
+ * @link https://codex.wordpress.org/Class_Reference/WP_Query#Taxonomy_Parameters
+ * @since 2018-11-05
+ */
+function rr_homepage_hidden_pre_get_posts( $query ) {
+	if (
+		! is_home()
+		|| is_404()
+	) {
+		return;
+	}
+
+	if ( is_array( $query->query_vars ) ) {
+		// here we modify the tax query.
+		$query->query_vars['tax_query'][] = array(
+			'taxonomy' => 'prominence',
+			'field' => 'slug',
+			'terms' => 'homepage-hidden',
+			'operator' => 'NOT IN',
+		);
+	}
+	return $query;
+}
+add_action( 'pre_get_posts', 'rr_homepage_hidden_pre_get_posts', 10, 1 );
