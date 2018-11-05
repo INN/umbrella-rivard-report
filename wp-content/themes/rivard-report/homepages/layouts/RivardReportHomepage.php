@@ -294,6 +294,14 @@ function rr_homepage_hidden_pre_get_posts( $query ) {
 		return;
 	}
 
+	if (
+		( is_string( $query->query_vars['post_type'] ) && 'post' !== $query->query_vars['post_type'] )
+		||
+		( is_array( $query->query_vars['post_type'] ) && ! in_array( 'post', $query->query_vars['post_type'], true ) )
+	) {
+		return;
+	}
+
 	if ( is_array( $query->query_vars ) ) {
 		// here we modify the tax query.
 		$query->query_vars['tax_query'][] = array(
