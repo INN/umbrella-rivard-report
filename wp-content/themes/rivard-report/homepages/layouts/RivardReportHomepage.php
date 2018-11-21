@@ -67,8 +67,7 @@ class RivardReportHome extends Homepage {
 
 		$how_many = 4;
 
-		//$featured_stories = largo_home_featured_stories( $how_many );
-		$featured_stories = array();
+		$featured_stories = largo_home_featured_stories( $how_many );
 
 		if ( count( $featured_stories ) < $how_many ) {
 			$recent_stories_query = new WP_Query( array(
